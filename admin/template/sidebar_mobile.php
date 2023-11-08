@@ -11,7 +11,7 @@
                      <img src="images/icon/avatar-big-01.jpg" alt="John Doe" />
                  </div>
                  <h4 class="name">john doe</h4>
-                 <a href="#">Sign out</a>
+                 <a>Admin</a>
              </div>
 
              <nav class="navbar-sidebar2">
