@@ -24,8 +24,7 @@ require 'template/sidebar_mobile.php';
                                 <li class="list-inline-item">Dashboard</li>
                             </ul>
                         </div>
-                        <button class="au-btn au-btn-icon au-btn--green">
-                            <i class="zmdi zmdi-plus"></i>add item</button>
+                        
                     </div>
                 </div>
             </div>

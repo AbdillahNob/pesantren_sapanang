@@ -5,8 +5,11 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="copyright">
-                    <p>Copyright © 2018 Colorlib. All rs reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+                    <p>by : KKN-T <a href="https://id.wikipedia.org/wiki/Universitas_Dipa_Makassar">Universitas Dipa Makassar</a> Gel-01 
+                        <a href="https://id.wikipedia.org/wiki/Universitas_Dipa_Makassar"><img src="../images/undipa.png" width="100"></a>
+                    </p>
                 </div>
+                
             </div>
         </div>
     </div>

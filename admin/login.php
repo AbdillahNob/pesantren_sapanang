@@ -75,7 +75,9 @@
                                     Anda tidak punya Akun ?
                                     <a href="registrasi.php">Registrasi disini</a>
                                 </p>
+                                
                             </div>
+                            <a href="../index.php"><i class="fa fa-home"></i></a>
                         </div>
                     </div>
                 </div>
