@@ -42,7 +42,7 @@
                                      <i class="fas fa-users"></i>Siswa</a>
                              </li>
                              <li>
-                                 <a href="table.php">
+                                 <a href="team.php">
                                      <i class="fas fa-address-card"></i>Team</a>
                              </li>
                          </ul>
