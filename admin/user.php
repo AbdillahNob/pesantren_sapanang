@@ -24,31 +24,21 @@ require 'template/sidebar_mobile.php';
                     </div>
                 </div>
 
-                <div class="table-responsive ">
+                <div class="table-responsive text-nowrap ">
                     <table class="table">
                         <thead>
                             <tr>
-                                <td>
-                                    <label class="au-checkbox">
-                                        <input type="checkbox">
-                                        <span class="au-checkmark"></span>
-                                    </label>
-                                </td>
-                                <td>name</td>
-                                <td>role</td>
-                                <td>type</td>
+                                <td>Nama</td>
+                                <td>Role</td>
+                                <td>Username</td>
+                                <td>Password</td>
                                 <td>Gambar</td>
                                 <td>Aksi</td>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>
-                                    <label class="au-checkbox">
-                                        <input type="checkbox">
-                                        <span class="au-checkmark"></span>
-                                    </label>
-                                </td>
+                    
                                 <td>
                                     <div class="table-data__info">
                                         <h6>lori lynch</h6>
@@ -60,16 +50,7 @@ require 'template/sidebar_mobile.php';
                                 <td>
                                     <span class="role admin">admin</span>
                                 </td>
-                                <td>
-                                    <div class="rs-select2--trans rs-select2--sm">
-                                        <select class="js-select2" name="property">
-                                            <option selected="selected">Full Control</option>
-                                            <option value="">Post</option>
-                                            <option value="">Watch</option>
-                                        </select>
-                                        <div class="dropDownSelect2"></div>
-                                    </div>
-                                </td>
+        
                                 <td>
                                     <span class="more">
                                         <i class="zmdi zmdi-more"></i>
@@ -77,12 +58,7 @@ require 'template/sidebar_mobile.php';
                                 </td>
                             </tr>
                             <tr>
-                                <td>
-                                    <label class="au-checkbox">
-                                        <input type="checkbox" checked="checked">
-                                        <span class="au-checkmark"></span>
-                                    </label>
-                                </td>
+                     
                                 <td>
                                     <div class="table-data__info">
                                         <h6>lori lynch</h6>
@@ -94,16 +70,7 @@ require 'template/sidebar_mobile.php';
                                 <td>
                                     <span class="role user">user</span>
                                 </td>
-                                <td>
-                                    <div class="rs-select2--trans rs-select2--sm">
-                                        <select class="js-select2" name="property">
-                                            <option value="">Full Control</option>
-                                            <option value="" selected="selected">Post</option>
-                                            <option value="">Watch</option>
-                                        </select>
-                                        <div class="dropDownSelect2"></div>
-                                    </div>
-                                </td>
+              
                                 <td>
                                     <span class="more">
                                         <i class="zmdi zmdi-more"></i>
@@ -111,12 +78,7 @@ require 'template/sidebar_mobile.php';
                                 </td>
                             </tr>
                             <tr>
-                                <td>
-                                    <label class="au-checkbox">
-                                        <input type="checkbox">
-                                        <span class="au-checkmark"></span>
-                                    </label>
-                                </td>
+                   
                                 <td>
                                     <div class="table-data__info">
                                         <h6>lori lynch</h6>
@@ -128,62 +90,18 @@ require 'template/sidebar_mobile.php';
                                 <td>
                                     <span class="role user">user</span>
                                 </td>
-                                <td>
-                                    <div class="rs-select2--trans rs-select2--sm">
-                                        <select class="js-select2" name="property">
-                                            <option value="">Full Control</option>
-                                            <option value="" selected="selected">Post</option>
-                                            <option value="">Watch</option>
-                                        </select>
-                                        <div class="dropDownSelect2"></div>
-                                    </div>
-                                </td>
+                  
                                 <td>
                                     <span class="more">
                                         <i class="zmdi zmdi-more"></i>
                                     </span>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <label class="au-checkbox">
-                                        <input type="checkbox">
-                                        <span class="au-checkmark"></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <div class="table-data__info">
-                                        <h6>lori lynch</h6>
-                                        <span>
-                                            <a href="#">johndoe@gmail.com</a>
-                                        </span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span class="role member">member</span>
-                                </td>
-                                <td>
-                                    <div class="rs-select2--trans rs-select2--sm">
-                                        <select class="js-select2" name="property">
-                                            <option selected="selected">Full Control</option>
-                                            <option value="">Post</option>
-                                            <option value="">Watch</option>
-                                        </select>
-                                        <div class="dropDownSelect2"></div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span class="more">
-                                        <i class="zmdi zmdi-more"></i>
-                                    </span>
-                                </td>
-                            </tr>
+              
                         </tbody>
                     </table>
                 </div>
-                <div class="user-data__footer">
-                    <button class="au-btn au-btn-load">load more</button>
-                </div>
+        
             </div>
             <!-- END USER DATA-->
 

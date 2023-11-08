@@ -9,7 +9,7 @@ require 'template/sidebar_mobile.php';
         <div class="container-fluid">
 
             <!-- DATA TABLE -->
-            <h3 class="title-5 m-b-35">data table</h3>
+            <h3 class="title-5 m-b-35"><i class="fa fa-users"></i> Data Siswa</h3>
             <div class="table-data__tool">
                 <div class="table-data__tool-right">
                     <a href="tambah_siswa.php">
@@ -24,16 +24,19 @@ require 'template/sidebar_mobile.php';
             <div class="row m-t-30">
                 <div class="col-md-12">
                     <!-- DATA TABLE-->
-                    <div class="table-responsive m-b-40">
+                    <div class="table-responsive m-b-40 text-nowrap">
                         <table class="table table-borderless table-data3">
                             <thead>
                                 <tr>
-                                    <th>date</th>
-                                    <th>type</th>
-                                    <th>description</th>
+                                    <th>Nis</th>
+                                    <th>Nama</th>
+                                    <th>Jenis kelamin</th>
                                     <th>status</th>
-                                    <th>price</th>
-                                    <th></th>
+                                    <th>Tanggal Masuk</th>
+                                    <th>Tempat Lahir</th>
+                                    <th>Tanggal lahir</th>
+                                    <th>Kelas</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -43,6 +46,9 @@ require 'template/sidebar_mobile.php';
                                     <td>iPhone X 64Gb Grey</td>
                                     <td class="process">Processed</td>
                                     <td>$999.00</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
                                     <td>
                                         <div class="table-data-feature">
                                             <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
@@ -61,19 +67,14 @@ require 'template/sidebar_mobile.php';
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>2018-09-28 01:22</td>
-                                    <td>Mobile</td>
-                                    <td>Samsung S8 Black</td>
-                                    <td class="process">Processed</td>
-                                    <td>$756.00</td>
-                                </tr>
-                                <tr>
                                     <td>2018-09-22 00:43</td>
                                     <td>Computer</td>
                                     <td>Macbook Pro Retina 2017</td>
                                     <td class="process">Processed</td>
                                     <td>$10.00</td>
-
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
                                     <td>
                                         <div class="table-data-feature">
                                             <button class="item" data-toggle="tooltip" data-placement="top" title="Send">

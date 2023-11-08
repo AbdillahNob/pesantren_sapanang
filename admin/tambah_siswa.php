@@ -12,7 +12,7 @@ require 'template/sidebar_mobile.php';
             <!-- <div class="col-lg-6"> -->
             <div class="card">
                 <div class="card-header">
-                    <strong>Basic Form</strong> Elements
+                    <strong>Data Tambah</strong> Siswa
                 </div>
                 <div class="card-body card-block">
                     <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
@@ -93,10 +93,10 @@ require 'template/sidebar_mobile.php';
                         <!-- Tgl keluar -->
                         <div class="row form-group">
                             <div class="col col-md-3">
-                                <label for="tanggal_keluar" class=" form-control-label">Tanggal keluar</label>
+                                <label for="tanggal_lahir" class=" form-control-label">Tanggal Lahir</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="date" id="tanggal_keluar" name="tanggal_keluar" class="form-control">
+                                <input type="date" id="tanggal_lahir" name="tanggal_lahir" class="form-control">
                             </div>
                         </div>
 
@@ -107,7 +107,6 @@ require 'template/sidebar_mobile.php';
                             </div>
                             <div class="col-12 col-md-9">
                                 <input type="text" id="kelas" name="kelas" placeholder="Masukkan kelas" class="form-control">
-                                <small class="form-text text-muted">kelas tidak boleh sama</small>
                             </div>
                         </div>
 
@@ -116,11 +115,11 @@ require 'template/sidebar_mobile.php';
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary btn-sm" name="submit">
-                        <i class="fa fa-dot-circle-o"></i> Submit
+                        <i class="fa fa-plus-circle"></i> Submit
                     </button>
                 </div>
             </div>
-
+            
         </div>
     </div>
 </div>

@@ -85,7 +85,7 @@
                             </a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="table.php">
+                                    <a href="siswa.php">
                                         <i class="fas fa-users"></i>Siswa</a>
                                 </li>
                                 <li>
