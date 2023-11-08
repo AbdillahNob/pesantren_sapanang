@@ -14,7 +14,7 @@ require 'template/sidebar_mobile.php';
                 <div class="table-data__tool-right">
                     <a href="tambah_siswa.php">
                         <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                            <i class="zmdi zmdi-plus"></i>add item
+                            <i class="zmdi zmdi-plus"></i>Tambah Siswa
                         </button>
                     </a>
                 </div>

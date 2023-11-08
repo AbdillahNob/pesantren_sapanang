@@ -96,7 +96,7 @@
                         </li>
 
                         <li>
-                            <a href="table.php">
+                            <a href="informasi.php">
                                 <i class="fas fa-info-circle"></i>Informasi</a>
                         </li>
                     </ul>

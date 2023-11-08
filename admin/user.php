@@ -11,14 +11,14 @@ require 'template/sidebar_mobile.php';
             <!-- USER DATA-->
             <div class="user-data m-b-30">
                 <h3 class="title-3 m-b-30">
-                    <i class="zmdi zmdi-account-calendar"></i>user data
+                    <i class="zmdi zmdi-account-calendar"></i>User data
                 </h3>
                 
                 <div class="filters m-b-45">
                     <div class="table-data__tool-right">
-                        <a href="form.php">
+                        <a href="tambah_user.php">
                             <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                <i class="zmdi zmdi-plus"></i>add item
+                                <i class="zmdi zmdi-plus"></i>Tambah User
                             </button>
                         </a>
                     </div>
