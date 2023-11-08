@@ -58,7 +58,7 @@
                     <div class="image img-cir img-120">
                         <img src="images/icon/avatar-big-01.jpg" alt="John Doe" />
                     </div>
-                    <h4 class="name">john doe</h4>
+                    <h4 class="name">Abdillah P Al-Iman</h4>
                     <a>ADMIN</a>
                 </div>
                 <nav class="navbar-sidebar2">
