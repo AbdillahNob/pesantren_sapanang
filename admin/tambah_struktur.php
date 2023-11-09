@@ -12,28 +12,28 @@ require 'template/sidebar_mobile.php';
             <!-- <div class="col-lg-6"> -->
             <div class="card">
                 <div class="card-header">
-                    <strong>Data Tambah</strong> Siswa
+                    <strong>Data Tambah</strong> Struktur
                 </div>
                 <div class="card-body card-block">
                     <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
-                        <!-- Nis -->
+                        <!-- Nik -->
                         <div class="row form-group">
                             <div class="col col-md-3">
-                                <label for="nis" class=" form-control-label">Nis</label>
+                                <label for="nik" class=" form-control-label">Nik</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="text" id="nis" name="nis" placeholder="Nis" class="form-control">
-                                <small class="form-text text-muted">Nis tidak boleh sama</small>
+                                <input type="text" id="nik" name="nik" placeholder="Masukkan Nik" class="form-control">
+                                <small class="form-text text-muted">Nik tidak boleh sama</small>
                             </div>
                         </div>
 
-                        <!-- Nama Siswa -->
+                        <!-- Nama Guru/Staf -->
                         <div class="row form-group">
                             <div class="col col-md-3">
-                                <label for="nama" class=" form-control-label">Nama Siswa</label>
+                                <label for="team" class=" form-control-label">Nama</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="text" id="nama" name="nama" placeholder="Masukkan nama siswa" class="form-control">
+                                <input type="text" id="team" name="team" placeholder="Masukkan Nama " class="form-control">
                                 <small class="help-block form-text">Mohon masukkan Nama dgn benar</small>
                             </div>
                         </div>
@@ -52,31 +52,6 @@ require 'template/sidebar_mobile.php';
                                         <input type="radio" id="wanita" name="jenis_kelamin" value="wanita" class="form-check-input">Wanita
                                     </label>
                                 </div>
-                            </div>
-                        </div>
-
-                        <!-- Status -->
-                        <div class="row form-group">
-                            <div class="col col-md-3">
-                                <label for="status" class=" form-control-label">Status siswa</label>
-                            </div>
-                            <div class="col-12 col-md-9">
-                                <select name="status" id="status" class="form-control-sm form-control">
-                                    <option value="">Pilih Status</option>
-                                    <option value="aktif">Aktif</option>
-                                    <option value="dikeluarkan">Dikeluarkan</option>
-                                    <option value="tamat">Tamat</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <!-- Tgl masuk -->
-                        <div class="row form-group">
-                            <div class="col col-md-3">
-                                <label for="tanggal_masuk" class=" form-control-label">Tanggal masuk</label>
-                            </div>
-                            <div class="col-12 col-md-9">
-                                <input type="date" id="tanggal_masuk" name="tanggal_masuk" class="form-control">
                             </div>
                         </div>
 
@@ -100,17 +75,41 @@ require 'template/sidebar_mobile.php';
                             </div>
                         </div>
 
-                        <!-- Kelas -->
+                        <!-- No.Telepon -->
                         <div class="row form-group">
                             <div class="col col-md-3">
-                                <label for="kelas" class=" form-control-label">kelas</label>
+                                <label for="telepon" class=" form-control-label">Telepon</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="text" id="kelas" name="kelas" placeholder="Masukkan kelas" class="form-control">
+                                <input type="text" id="telepon" name="telepon" placeholder="Masukkan Telepon" class="form-control">
                             </div>
                         </div>
 
-              
+                        <!-- Jabatan -->
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                <label for="posisi" class=" form-control-label">Jabatan</label>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <select name="posisi" id="posisi" class="form-control-sm form-control">
+                                    <option value="">Pilih Jabatan</option>
+                                    <option value="kepala yayasan">Kepala Yayasan</option>
+                                    <option value="guru">Guru</option>
+                                    <option value="staf">Staf</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Gambar -->
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                <label for="gambar" class=" form-control-label">Foto</label>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <input type="file" id="gambar" name="gambar" class="form-control">
+                            </div>
+                        </div>
+
                     </form>
                 </div>
                 <div class="card-footer">
@@ -119,7 +118,7 @@ require 'template/sidebar_mobile.php';
                     </button>
                 </div>
             </div>
-            
+
         </div>
     </div>
 </div>

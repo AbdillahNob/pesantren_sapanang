@@ -89,8 +89,8 @@
                                         <i class="fas fa-users"></i>Siswa</a>
                                 </li>
                                 <li>
-                                    <a href="team.php">
-                                        <i class="fas fa-address-card"></i>Team</a>
+                                    <a href="struktur.php">
+                                        <i class="fas fa-address-card"></i>Struktur</a>
                                 </li>
                             </ul>
                         </li>

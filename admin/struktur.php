@@ -9,12 +9,12 @@ require 'template/sidebar_mobile.php';
         <div class="container-fluid">
 
             <!-- DATA TABLE -->
-            <h3 class="title-5 m-b-35"><i class="fa fa-users"></i> Data Guru dan Staf</h3>
+            <h3 class="title-5 m-b-35"><i class="fa fa-users"></i> Data Struktur</h3>
             <div class="table-data__tool">
                 <div class="table-data__tool-right">
                     <a href="tambah_team.php">
                         <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                            <i class="zmdi zmdi-plus"></i>Tambah Team
+                            <i class="zmdi zmdi-plus"></i>Tambah Struktur
                         </button>
                     </a>
                 </div>
@@ -34,7 +34,7 @@ require 'template/sidebar_mobile.php';
                                     <th>Tempat lahir</th>
                                     <th>Tanggal lahir</th>
                                     <th>No telepon</th>
-                                    <th>Posisi</th>
+                                    <th>Jabatan</th>
                                     <th>Gambar</th>
                                     <th>Aksi</th>
                                 </tr>
