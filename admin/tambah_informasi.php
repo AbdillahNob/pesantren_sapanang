@@ -16,7 +16,7 @@ require 'template/sidebar_mobile.php';
                 </div>
                 <div class="card-body card-block">
                     <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
-                        <!-- Nis -->
+                        <!-- Judul -->
                         <div class="row form-group">
                             <div class="col col-md-3">
                                 <label for="judul" class=" form-control-label">Judul</label>
