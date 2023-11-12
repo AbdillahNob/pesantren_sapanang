@@ -61,7 +61,7 @@ require 'template/sidebar_mobile.php';
                                 <label for="status" class=" form-control-label">Status siswa</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <select name="status" id="status" class="form-control-sm form-control">
+                                <select name="status" id="status" class="form-control-sm form-control" required>
                                     <option value="">Pilih Status</option>
                                     <option value="aktif">Aktif</option>
                                     <option value="dikeluarkan">Dikeluarkan</option>

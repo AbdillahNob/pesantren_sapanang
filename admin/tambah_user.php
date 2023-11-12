@@ -10,15 +10,15 @@ if (isset($_POST['submit'])) {
     if (insert($_POST, $no_file) > 0) {
         echo "
             <script>
-                alert('Tambah User berhasil wkwk');
-                window.replace.location('user.php');
+                alert('Tambah Akun berhasil wkwk');
+                window.location.replace('user.php');
             </script>
         ";
     } else {
         echo "
         <script>
             alert('Gagal');
-            window.replace.location('user.php');
+            window.location.replace('user.php');
         </script>
     ";
     }
@@ -57,6 +57,20 @@ if (isset($_POST['submit'])) {
                             <div class="col-12 col-md-9">
                                 <input type="text" id="username" name="username" placeholder="Masukkan Username" class="form-control" required>
                                 <small class="help-block form-text">Mohon masukkan Username dgn benar</small>
+                            </div>
+                        </div>
+
+                        <!-- Role -->
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                <label for="status" class=" form-control-label">Status akun</label>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <select name="status" id="status" class="form-control-sm form-control" required>
+                                    <option value="">Pilih Status</option>
+                                    <option value="admin">Admin</option>
+                                    <option value="user">User</option>
+                                </select>
                             </div>
                         </div>
 

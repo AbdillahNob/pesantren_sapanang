@@ -11,7 +11,7 @@ $con = mysqli_connect("localhost", "root", "", "pesantren_sapanang");
 // }
 // var_dump($result);
 
-function view($query)
+function tampil($query)
 {
     global $con;
     $result = mysqli_query($con, $query);
@@ -35,6 +35,7 @@ function insert($data, $no_file)
         $username = strtolower(stripslashes($data['username']));
         $password = mysqli_real_escape_string($con, $data['password']);
         $rePassword = mysqli_real_escape_string($con, $data['rePassword']);
+        $status = $data['status'];
 
         // Validasi Konfirmasi password
         if ($password != $rePassword) {
@@ -60,6 +61,18 @@ function insert($data, $no_file)
                 return false;
             }
 
+            $result = mysqli_query($con, "SELECT * FROM user WHERE status = '$status'");
+            // Validasi agr role ADMIN hanya 1.
+            if(mysqli_num_rows($result) > 0 && $status == 'admin'){
+                echo "
+                    <script>
+                        alert('Admin hanya boleh 1 akun !');
+                    </script>
+                ";
+                return false;
+            }
+
+
             // fungsi upload tdk diluar krna apabila ggl tambah tpi input gmbr benar maka gmbr ttp trkrm ke server
             $gambar = upload($no_foto);
             // jika gambar tdk sesuai kriteria
@@ -68,9 +81,10 @@ function insert($data, $no_file)
             }
 
             $password = password_hash($password, PASSWORD_DEFAULT);
-            $query = "INSERT INTO user (nama, username, password, gambar) VALUES 
+            $query = "INSERT INTO user (nama, username, status, password, gambar) VALUES 
                                         ('$nama',
                                         '$username',
+                                        '$status',
                                         '$password', 
                                         '$gambar')
                                         ";

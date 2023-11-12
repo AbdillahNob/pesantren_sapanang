@@ -2,6 +2,10 @@
 require 'template/sidebar_desktop.php';
 require 'template/header_desktop.php';
 require 'template/sidebar_mobile.php';
+require '../function/function.php';
+
+$query_user = tampil("SELECT * FROM user");
+
 ?>
 <!-- MAIN CONTENT-->
 <div class="main-content">
@@ -13,7 +17,7 @@ require 'template/sidebar_mobile.php';
                 <h3 class="title-3 m-b-30">
                     <i class="zmdi zmdi-account-calendar"></i>User data
                 </h3>
-                
+
                 <div class="filters m-b-45">
                     <div class="table-data__tool-right">
                         <a href="tambah_user.php">
@@ -28,80 +32,44 @@ require 'template/sidebar_mobile.php';
                     <table class="table">
                         <thead>
                             <tr>
-                                <td>Nama</td>
-                                <td>Role</td>
-                                <td>Username</td>
-                                <td>Password</td>
-                                <td>Gambar</td>
-                                <td>Aksi</td>
+                                <th>No</th>
+                                <th>Gambar</th>
+                                <th>Nama</th>
+                                <th>Role</th>
+                                <th>Username</th>
+                                <th>Password</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                    
-                                <td>
-                                    <div class="table-data__info">
-                                        <h6>lori lynch</h6>
-                                        <span>
-                                            <a href="#">johndoe@gmail.com</a>
-                                        </span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span class="role admin">admin</span>
-                                </td>
-                                <td>a</td>
-                                <td>b</td>
-                                <td>s</td>
-                                <td>
-                                    <a href="edit_user.php"><i class="zmdi zmdi-edit"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                     
-                                <td>
-                                    <div class="table-data__info">
-                                        <h6>lori lynch</h6>
-                                        <span>
-                                            <a href="#">johndoe@gmail.com</a>
-                                        </span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span class="role user">user</span>
-                                </td>
-                                <td>a</td>
-                                <td>b</td>
-                                <td>s</td>
-                                <td>
-                                    <a href="edit_user.php"><i class="zmdi zmdi-edit"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                   
-                                <td>
-                                    <div class="table-data__info">
-                                        <h6>lori lynch</h6>
-                                        <span>
-                                            <a href="#">johndoe@gmail.com</a>
-                                        </span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span class="role user">user</span>
-                                </td>
-                                <td>a</td>
-                                <td>b</td>
-                                <td>s</td>
-                                <td>
-                                    <a href="edit_user.php"><i class="zmdi zmdi-edit"></i></a>
-                                </td>
-                            </tr>
-              
+                            <?php $n = 1;
+                            while ($row = mysqli_fetch_assoc($query_user)) : ?>
+                                <tr>
+                                    <td><?= $n++ ?>.</td>
+                                    <td>
+                                        <img src="../images/user/<?= $row['gambar'] ?>" height="200">
+                                    </td>
+                                    <td>
+                                        <div class="table-data__info">
+                                            <h6><?= $row['nama']; ?></h6>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="role <?= $row['status']; ?>"><?= $row['status']; ?></span>
+                                    </td>
+                                    <td><?= $row['username']; ?></td>
+                                    <td><?= $row['password']; ?></td>
+                                    <td>
+                                        <a href="edit_user.php"><i class="zmdi zmdi-edit"></i></a>
+                                        <a href="hapus_user.php"><i class="zmdi zmdi-delete"></i></a>
+                                    </td>
+                                </tr>
+                            <?php endwhile; ?>
+
                         </tbody>
                     </table>
                 </div>
-        
+
             </div>
             <!-- END USER DATA-->
 
