@@ -15,7 +15,7 @@ require 'template/sidebar_mobile.php';
                     <strong>Data Edit</strong> Siswa
                 </div>
                 <div class="card-body card-block">
-                    <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                    <form action="" method="post" class="form-horizontal">
                         <input type="hidden" name="id_siswa" value="">
                         <input type="hidden" name="no_file" value="">
 

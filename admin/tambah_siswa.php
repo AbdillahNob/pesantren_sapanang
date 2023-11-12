@@ -15,14 +15,14 @@ require 'template/sidebar_mobile.php';
                     <strong>Data Tambah</strong> Siswa
                 </div>
                 <div class="card-body card-block">
-                    <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                    <form action="" method="post" class="form-horizontal">
                         <!-- Nis -->
                         <div class="row form-group">
                             <div class="col col-md-3">
                                 <label for="nis" class=" form-control-label">Nis</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="text" id="nis" name="nis" placeholder="Nis" class="form-control">
+                                <input type="text" id="nis" name="nis" placeholder="Nis" class="form-control" required>
                                 <small class="form-text text-muted">Nis tidak boleh sama</small>
                             </div>
                         </div>
@@ -33,7 +33,7 @@ require 'template/sidebar_mobile.php';
                                 <label for="nama" class=" form-control-label">Nama Siswa</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="text" id="nama" name="nama" placeholder="Masukkan nama siswa" class="form-control">
+                                <input type="text" id="nama" name="nama" placeholder="Masukkan nama siswa" class="form-control" required>
                                 <small class="help-block form-text">Mohon masukkan Nama dgn benar</small>
                             </div>
                         </div>
@@ -76,7 +76,7 @@ require 'template/sidebar_mobile.php';
                                 <label for="tanggal_masuk" class=" form-control-label">Tanggal masuk</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="date" id="tanggal_masuk" name="tanggal_masuk" class="form-control">
+                                <input type="date" id="tanggal_masuk" name="tanggal_masuk" class="form-control" required>
                             </div>
                         </div>
 
@@ -96,7 +96,7 @@ require 'template/sidebar_mobile.php';
                                 <label for="tanggal_lahir" class=" form-control-label">Tanggal Lahir</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="date" id="tanggal_lahir" name="tanggal_lahir" class="form-control">
+                                <input type="date" id="tanggal_lahir" name="tanggal_lahir" class="form-control" required>
                             </div>
                         </div>
 
@@ -106,7 +106,7 @@ require 'template/sidebar_mobile.php';
                                 <label for="kelas" class=" form-control-label">kelas</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="text" id="kelas" name="kelas" placeholder="Masukkan kelas" class="form-control">
+                                <input type="text" id="kelas" name="kelas" placeholder="Masukkan kelas" class="form-control" required>
                             </div>
                         </div>
 

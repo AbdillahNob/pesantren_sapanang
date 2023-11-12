@@ -22,7 +22,7 @@ require 'template/sidebar_mobile.php';
                                 <label for="judul" class=" form-control-label">Judul</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="text" id="judul" name="judul" placeholder="Masukkan Judul" class="form-control">
+                                <input type="text" id="judul" name="judul" placeholder="Masukkan Judul" class="form-control" required>
                             </div>
                         </div>
 
@@ -32,7 +32,7 @@ require 'template/sidebar_mobile.php';
                                 <label for="deskripsi" class=" form-control-label">Deskripsi</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <textarea id="deskripsi" name="deskripsi" placeholder="Masukkan Deskripsi" rows="9" class="form-control"></textarea>
+                                <textarea id="deskripsi" name="deskripsi" placeholder="Masukkan Deskripsi" rows="9" class="form-control" required></textarea>
                             </div>
                         </div>
 
@@ -42,7 +42,7 @@ require 'template/sidebar_mobile.php';
                                 <label for="tanggal_informasi" class=" form-control-label">Tanggal Informasi</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="date" id="tanggal_informasi" name="tanggal_informasi" class="form-control">
+                                <input type="date" id="tanggal_informasi" name="tanggal_informasi" class="form-control" required>
                             </div>
                         </div>
 
@@ -52,7 +52,7 @@ require 'template/sidebar_mobile.php';
                                 <label for="penulis" class=" form-control-label">Penulis</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="text" id="penulis" name="penulis" class="form-control" placeholder="Masukkan Penulis">
+                                <input type="text" id="penulis" name="penulis" class="form-control" placeholder="Masukkan Penulis" required>
                             </div>
                         </div>
 
@@ -62,7 +62,7 @@ require 'template/sidebar_mobile.php';
                                 <label for="gambar" class=" form-control-label">Gambar</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="file" id="gambar" name="gambar" class="form-control">
+                                <input type="file" id="gambar" name="gambar" class="form-control" required>
                             </div>
                         </div>
 

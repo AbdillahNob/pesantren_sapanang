@@ -79,3 +79,9 @@ function insert($data, $no_file)
         }
     }
 }
+
+function upload(){
+    
+}
+
+

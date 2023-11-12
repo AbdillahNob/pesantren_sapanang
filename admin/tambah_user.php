@@ -23,7 +23,7 @@ require 'template/sidebar_mobile.php';
                                 <label for="nama" class=" form-control-label">Nama User</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="text" id="nama" name="nama" placeholder="Masukkan Nama" class="form-control">
+                                <input type="text" id="nama" name="nama" placeholder="Masukkan Nama" class="form-control" required>
                                 <small class="help-block form-text">Mohon masukkan Nama dgn benar</small>
                             </div>
                         </div>
@@ -34,7 +34,7 @@ require 'template/sidebar_mobile.php';
                                 <label for="username" class=" form-control-label">Username</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="text" id="username" name="username" placeholder="Masukkan Username" class="form-control">
+                                <input type="text" id="username" name="username" placeholder="Masukkan Username" class="form-control" required>
                                 <small class="help-block form-text">Mohon masukkan Username dgn benar</small>
                             </div>
                         </div>
@@ -45,7 +45,7 @@ require 'template/sidebar_mobile.php';
                                 <label for="password" class=" form-control-label">Password</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="password" id="password" name="password" placeholder="Masukkan Password" class="form-control">
+                                <input type="password" id="password" name="password" placeholder="Masukkan Password" class="form-control" required>
                             </div>
                         </div>
 
@@ -55,7 +55,7 @@ require 'template/sidebar_mobile.php';
                                 <label for="rePassword" class=" form-control-label">Konfirmasi Password</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="rePassword" id="rePassword" name="rePassword" placeholder="Konfirmasi Ulang Password" class="form-control">
+                                <input type="rePassword" id="rePassword" name="rePassword" placeholder="Konfirmasi Ulang Password" class="form-control" required>
                             </div>
                         </div>
 
@@ -65,7 +65,7 @@ require 'template/sidebar_mobile.php';
                                 <label for="gambar" class=" form-control-label">Gambar</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="file" id="gambar" name="gambar" class="form-control">
+                                <input type="file" id="gambar" name="gambar" class="form-control" required>
                             </div>
                         </div>
 

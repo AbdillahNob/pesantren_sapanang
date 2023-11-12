@@ -22,7 +22,7 @@ require 'template/sidebar_mobile.php';
                                 <label for="nik" class=" form-control-label">Nik</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="text" id="nik" name="nik" placeholder="Masukkan Nik" class="form-control">
+                                <input type="text" id="nik" name="nik" placeholder="Masukkan Nik" class="form-control" required>
                                 <small class="form-text text-muted">Nik tidak boleh sama</small>
                             </div>
                         </div>
@@ -33,7 +33,7 @@ require 'template/sidebar_mobile.php';
                                 <label for="team" class=" form-control-label">Nama</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="text" id="team" name="team" placeholder="Masukkan Nama " class="form-control">
+                                <input type="text" id="team" name="team" placeholder="Masukkan Nama " class="form-control" required>
                                 <small class="help-block form-text">Mohon masukkan Nama dgn benar</small>
                             </div>
                         </div>
@@ -61,7 +61,7 @@ require 'template/sidebar_mobile.php';
                                 <label for="tempat_lahir" class=" form-control-label">Tempat lahir</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="text" id="tempat_lahir" name="tempat_lahir" placeholder="Masukkan Tempat lahir" class="form-control">
+                                <input type="text" id="tempat_lahir" name="tempat_lahir" placeholder="Masukkan Tempat lahir" class="form-control" required>
                             </div>
                         </div>
 
@@ -81,7 +81,7 @@ require 'template/sidebar_mobile.php';
                                 <label for="telepon" class=" form-control-label">Telepon</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="text" id="telepon" name="telepon" placeholder="Masukkan Telepon" class="form-control">
+                                <input type="text" id="telepon" name="telepon" placeholder="Masukkan Telepon" class="form-control" required>
                             </div>
                         </div>
 
@@ -106,7 +106,7 @@ require 'template/sidebar_mobile.php';
                                 <label for="gambar" class=" form-control-label">Foto</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="file" id="gambar" name="gambar" class="form-control">
+                                <input type="file" id="gambar" name="gambar" class="form-control" required>
                             </div>
                         </div>
 
