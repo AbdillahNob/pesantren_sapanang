@@ -2,6 +2,27 @@
 require 'template/sidebar_desktop.php';
 require 'template/header_desktop.php';
 require 'template/sidebar_mobile.php';
+require '../function/function.php';
+
+if (isset($_POST['submit'])) {
+
+    $no_file = $_GET['no_file'];
+    if (insert($_POST, $no_file) > 0) {
+        echo "
+            <script>
+                alert('Tambah User berhasil wkwk');
+                window.replace.location('user.php');
+            </script>
+        ";
+    } else {
+        echo "
+        <script>
+            alert('Gagal');
+            window.replace.location('user.php');
+        </script>
+    ";
+    }
+}
 ?>
 
 <!-- MAIN CONTENT-->
@@ -15,7 +36,7 @@ require 'template/sidebar_mobile.php';
                     <strong>Data Tambah</strong> User
                 </div>
                 <div class="card-body card-block">
-                    <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                    <form action="?no_file=1" method="post" enctype="multipart/form-data" class="form-horizontal">
 
                         <!-- Nama User -->
                         <div class="row form-group">
@@ -68,13 +89,13 @@ require 'template/sidebar_mobile.php';
                                 <input type="file" id="gambar" name="gambar" class="form-control" required>
                             </div>
                         </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary btn-sm" name="submit">
+                                <i class="fa fa-plus-circle"></i> Submit
+                            </button>
+                        </div>
 
                     </form>
-                </div>
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-primary btn-sm" name="submit">
-                        <i class="fa fa-plus-circle"></i> Submit
-                    </button>
                 </div>
             </div>
 
