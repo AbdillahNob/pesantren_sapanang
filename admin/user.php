@@ -50,11 +50,11 @@ require 'template/sidebar_mobile.php';
                                 <td>
                                     <span class="role admin">admin</span>
                                 </td>
-        
+                                <td>a</td>
+                                <td>b</td>
+                                <td>s</td>
                                 <td>
-                                    <span class="more">
-                                        <i class="zmdi zmdi-more"></i>
-                                    </span>
+                                    <a href="edit_user.php"><i class="zmdi zmdi-edit"></i></a>
                                 </td>
                             </tr>
                             <tr>
@@ -70,11 +70,11 @@ require 'template/sidebar_mobile.php';
                                 <td>
                                     <span class="role user">user</span>
                                 </td>
-              
+                                <td>a</td>
+                                <td>b</td>
+                                <td>s</td>
                                 <td>
-                                    <span class="more">
-                                        <i class="zmdi zmdi-more"></i>
-                                    </span>
+                                    <a href="edit_user.php"><i class="zmdi zmdi-edit"></i></a>
                                 </td>
                             </tr>
                             <tr>
@@ -90,11 +90,11 @@ require 'template/sidebar_mobile.php';
                                 <td>
                                     <span class="role user">user</span>
                                 </td>
-                  
+                                <td>a</td>
+                                <td>b</td>
+                                <td>s</td>
                                 <td>
-                                    <span class="more">
-                                        <i class="zmdi zmdi-more"></i>
-                                    </span>
+                                    <a href="edit_user.php"><i class="zmdi zmdi-edit"></i></a>
                                 </td>
                             </tr>
               
