@@ -59,18 +59,17 @@ function insert($data, $no_file)
 
             $result = mysqli_query($con, "SELECT * FROM user WHERE username ='$username'");
             // Validasi apakah username yg didftr sdh ad di DB
-            if(mysqli_num_rows($result)>0){
-                echo"
+            if (mysqli_num_rows($result) > 0) {
+                echo "
                     <script>
                         alert('Maaf Username anda sdh di daftar sebelumnya');
                     </script>
                 ";
             }
-            
-            $password = password_hash($password,PASSWORD_DEFAULT);
+
+            $password = password_hash($password, PASSWORD_DEFAULT);
             $query = "INSERT INTO user (nama, username, password, gambar) VALUES ('$nama','$username','$password', '$gambar')";
-        } 
-        else {
+        } else {
             echo "
                 <script>
                     alert('Maaf Anda tidak berhak daftar Akun !');
@@ -80,8 +79,50 @@ function insert($data, $no_file)
     }
 }
 
-function upload(){
-    
+function upload($no_foto)
+{
+    $namaFile = $_FILES['gambar']['name'];
+    $ukuranFile = $_FILES['gambar']['size'];
+    $tmpFile = $_FILES['gambar']['tmp_name'];
+
+    // Validasi ekstensi foto
+    $ekstensiValid = ['jpg','jpeg','png'];
+    $ekstensiFoto = explode(".","$namaFile");
+    $ekstensiFoto = strtolower(end($namaFile));
+    if(!in_array($ekstensiFoto, $ekstensiValid)){
+        echo"
+            <script>
+                alert('Ekstensi foto anda harus jpg,jpeg dan png !');
+            </script>
+        ";
+        return false;
+
+    }
+
+    if($ukuranFile > 10000000){
+        echo"
+            <script>
+                alert('Ukuran foto anda terlalu besar !');
+            </script>
+        ";
+    }
+    // Notes
+    // 1. User
+    // 2. Siswa
+    // 3. Struktur
+    // 4. Informasi
+    if($no_foto == 1){
+        $fileDir = "admin/images/user/";
+    }
+
+    $namaFotoBaru = uniqid();
+    $namaFotoBaru .= ".";
+    $namaFotoBaru .= $ekstensiFoto;
+
+    $fileUpload = $fileDir . basename($namaFotoBaru);
+
+    // ambil foto dari server lalu pindahkan ke $fileupload yg isiny folder 
+    move_uploaded_file($tmpFile, $fileUpload);
+
+    return $namaFotoBaru; 
 }
-
-
