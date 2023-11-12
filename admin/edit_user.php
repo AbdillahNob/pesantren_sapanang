@@ -52,6 +52,16 @@ require 'template/sidebar_mobile.php';
                             </div>
                         </div>
 
+                        <!-- RE-Password -->
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                <label for="rePassword" class=" form-control-label">Konfirmasi Password</label>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <input type="rePassword" id="rePassword" name="rePassword" placeholder="Konfirmasi Ulang Password" class="form-control">
+                            </div>
+                        </div>
+
                         <!-- Gambar -->
                         <div class="row form-group">
                             <div class="col col-md-3">

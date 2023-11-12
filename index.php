@@ -1,5 +1,6 @@
       <?php 
       require 'header.php';
+      require 'function/function.php';
       ?>
         <!-- Start Slider  -->
         <section id="home" class="home">
