@@ -161,12 +161,11 @@ function update($data, $no_file)
         // Validasi gambar update
         if ($_FILES['gambar']['error'] == 4) {
             $gambar = $gambar_lama;
-            
         } else {
             $gambar = upload($no_foto);
 
             // Validasi bila gambar yg di-update tdk memenuhi syarat
-            if(!$gambar){
+            if (!$gambar) {
                 return false;
             }
         }
@@ -178,7 +177,7 @@ function update($data, $no_file)
     // 3.struktur
     // 4.Informasi
 
-    if($no_file == 1){
+    if ($no_file == 1) {
         global $con;
         $id = $data['id_user'];
         $nama = $data['nama'];
@@ -189,13 +188,13 @@ function update($data, $no_file)
         $row = mysqli_fetch_assoc($result);
 
         // Bila Password Lama benar
-        if(password_verify($passwordLama, $row['password'])){
-            $passwordBaru = mysqli_real_escape_string($con,$data['passwordBaru']);
+        if (password_verify($passwordLama, $row['password'])) {
+            $passwordBaru = mysqli_real_escape_string($con, $data['passwordBaru']);
 
             // Validasi bila ad Password Baru
-            if($passwordBaru == true){
+            if ($passwordBaru == true) {
                 // Validasi bila konfirmasi Password tdk sesuai 
-                if($passwordBaru != $rePassword){
+                if ($passwordBaru != $rePassword) {
                     echo "
                         <script>
                             alert('Maaf Konfirmasi Password Anda tidak sesuai !');
@@ -204,21 +203,19 @@ function update($data, $no_file)
                     return false;
                 }
                 $password = password_hash($passwordBaru, PASSWORD_DEFAULT);
-
-            } 
+            }
             // Bila tdk ad Pass baru
-            else{
+            else {
                 echo "
                     <script>
                         alert('Mohon Masukkan Password baru anda');
                     </script>
-                "; 
+                ";
                 return false;
             }
-
-        } 
+        }
         // Bila Password ad tpi salah pd saat di verifikasi
-        else if($passwordLama == true){
+        else if ($passwordLama == true) {
             echo "
                 <script>
                     alert('Maaf Password yg anda input salah !');
@@ -227,7 +224,7 @@ function update($data, $no_file)
             return false;
         }
         // Bila Password tdk di input
-        else{
+        else {
             $password = $data['pass'];
         }
 
@@ -242,5 +239,22 @@ function update($data, $no_file)
     mysqli_query($con, $query);
 
     return mysqli_affected_rows($con);
+}
 
+function hapus($id, $no_file)
+{
+    global $con;
+
+    // notes
+    // 1.user
+    // 2.siswa
+    // 3.struktur
+    // 4.Informasi
+
+    if($no_file == 1 ){
+        $query = "DELETE FROM user WHERE id_user = $id";
+    }
+    mysqli_query($con, $query);
+
+    return mysqli_affected_rows($con);
 }

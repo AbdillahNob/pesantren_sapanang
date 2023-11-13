@@ -59,7 +59,7 @@ $query_user = tampil("SELECT * FROM user");
                                     <td><?= $row['password']; ?></td>
                                     <td>
                                         <a href="edit_user.php?id=<?= $row['id_user']; ?>"><i class="zmdi zmdi-edit"></i></a>
-                                        <a href="hapus_user.php?id=<?= $row['id_user']; ?>&no_file=1"><i class="zmdi zmdi-delete"></i></a>
+                                        <a href="hapus_user.php?id=<?= $row['id_user']; ?>&no_file=1" onclick="return confirm('Yakin Hapus User ?')"><i class="zmdi zmdi-delete"></i></a>
                                     </td>
                                 </tr>
                             <?php endwhile; ?>
