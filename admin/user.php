@@ -1,7 +1,5 @@
 <?php
-require 'template/sidebar_desktop.php';
-require 'template/header_desktop.php';
-require 'template/sidebar_mobile.php';
+require 'template/header.php';
 require '../function/function.php';
 
 $query_user = tampil("SELECT * FROM user");
@@ -60,8 +58,8 @@ $query_user = tampil("SELECT * FROM user");
                                     <td><?= $row['username']; ?></td>
                                     <td><?= $row['password']; ?></td>
                                     <td>
-                                        <a href="edit_user.php"><i class="zmdi zmdi-edit"></i></a>
-                                        <a href="hapus_user.php"><i class="zmdi zmdi-delete"></i></a>
+                                        <a href="edit_user.php?id=<?= $row['id_user']; ?>"><i class="zmdi zmdi-edit"></i></a>
+                                        <a href="hapus_user.php?id=<?= $row['id_user']; ?>&no_file=1"><i class="zmdi zmdi-delete"></i></a>
                                     </td>
                                 </tr>
                             <?php endwhile; ?>

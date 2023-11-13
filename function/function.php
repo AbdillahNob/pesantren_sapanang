@@ -182,9 +182,7 @@ function update($data, $no_file)
         global $con;
         $id = $data['id_user'];
         $nama = $data['nama'];
-        $username = $data['username'];
         $passwordLama = $data['passwordLama'];
-        $passwordBaru = $data['passwordBaru'];
         $rePassword = $data['rePassword'];
 
         $result = mysqli_query($con, "SELECT * FROM user WHERE id_user = $id");
@@ -192,20 +190,57 @@ function update($data, $no_file)
 
         // Bila Password Lama benar
         if(password_verify($passwordLama, $row['password'])){
+            $passwordBaru = mysqli_real_escape_string($con,$data['passwordBaru']);
+
+            // Validasi bila ad Password Baru
+            if($passwordBaru == true){
+                // Validasi bila konfirmasi Password tdk sesuai 
+                if($passwordBaru != $rePassword){
+                    echo "
+                        <script>
+                            alert('Maaf Konfirmasi Password Anda tidak sesuai !');
+                        </script>
+                    ";
+                    return false;
+                }
+                $password = password_hash($passwordBaru, PASSWORD_DEFAULT);
+
+            } 
+            // Bila tdk ad Pass baru
+            else{
+                echo "
+                    <script>
+                        alert('Mohon Masukkan Password baru anda');
+                    </script>
+                "; 
+                return false;
+            }
 
         } 
         // Bila Password ad tpi salah pd saat di verifikasi
         else if($passwordLama == true){
             echo "
                 <script>
-                    alert('Maaf Password lama anda Salah !');
+                    alert('Maaf Password yg anda input salah !');
                 </script>
             ";
+            return false;
         }
         // Bila Password tdk di input
         else{
             $password = $data['pass'];
         }
+
+        $query = "UPDATE user SET
+                        nama = '$nama',
+                        password = '$password',
+                        gambar = '$gambar'
+                        WHERE id_user = $id
+                        ";
     }
+
+    mysqli_query($con, $query);
+
+    return mysqli_affected_rows($con);
 
 }

@@ -1,7 +1,30 @@
 <?php
-require 'template/sidebar_desktop.php';
-require 'template/header_desktop.php';
-require 'template/sidebar_mobile.php';
+require 'template/header.php';
+require '../function/function.php';
+
+$id = $_GET['id'];
+$query_user = tampil("SELECT * FROM user WHERE id_user=$id");
+
+if (isset($_POST['submit'])) {
+    $no_file = $_POST['no_file'];
+
+    if (update($_POST, $no_file) > 0) {
+        echo "
+            <script>
+                alert('Berhasil Edit User');
+                window.location.replace('user.php');
+            </script>
+        ";
+    } else {
+        echo "
+        <script>
+            alert('Tidak perubahan Data');
+            window.location.replace('user.php');
+        </script>
+    ";
+    }
+}
+
 ?>
 
 <!-- MAIN CONTENT-->
@@ -15,82 +38,87 @@ require 'template/sidebar_mobile.php';
                     <strong>Data Edit</strong> User
                 </div>
                 <div class="card-body card-block">
-                    <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
-                        <input type="hidden" name="id_user" value="">
-                        <input type="hidden" name="no_file" value="">
-                        <input type="hidden" name="gambar_lama" value="">
-                        <input type="hidden" name="pass" value="">
+                    <?php while ($row = mysqli_fetch_assoc($query_user)) : ?>
 
-                        <!-- Nama User -->
-                        <div class="row form-group">
-                            <div class="col col-md-3">
-                                <label for="nama" class=" form-control-label">Nama User</label>
+                        <form role="form" action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+
+                            <input type="hidden" name="id_user" value="<?= $row['id_user']; ?>">
+                            <input type="hidden" name="no_file" value="1">
+                            <input type="hidden" name="gambar_lama" value="<?= $row['gambar']; ?>">
+                            <input type="hidden" name="pass" value="<?= $row['password']; ?>">
+
+                            <!-- Nama User -->
+                            <div class="row form-group">
+                                <div class="col col-md-3">
+                                    <label for="nama" class=" form-control-label">Nama User</label>
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    <input type="text" id="nama" name="nama" placeholder="Masukkan Nama" class="form-control" value="<?= $row['nama']; ?>">
+                                    <small class="help-block form-text">Mohon masukkan Nama dgn benar</small>
+                                </div>
                             </div>
-                            <div class="col-12 col-md-9">
-                                <input type="text" id="nama" name="nama" placeholder="Masukkan Nama" class="form-control" value="">
-                                <small class="help-block form-text">Mohon masukkan Nama dgn benar</small>
+
+                            <!-- Username-->
+                            <div class="row form-group">
+                                <div class="col col-md-3">
+                                    <label for="username" class=" form-control-label">Username :</label>
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    <b><?= $row['username']; ?></b>
+                                </div>
                             </div>
+
+                            <!-- Password -->
+                            <div class="row form-group">
+                                <div class="col col-md-3">
+                                    <label for="passwordLama" class=" form-control-label">Password </label>
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    <small class="help-block form-text">Masukkan Password sebelum, Ganti Password BARU</small>
+                                    <input type="password" id="passwordLama" name="passwordLama" placeholder="Masukkan Password Sebelumnya" class="form-control">
+                                </div>
+                            </div>
+
+                            <!-- Password Baru -->
+                            <div class="row form-group">
+                                <div class="col col-md-3">
+                                    <label for="password" class=" form-control-label">Password Baru</label>
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    <input type="password" id="passwordBaru" name="passwordBaru" placeholder="Masukkan Password Baru" class="form-control" value="">
+                                </div>
+                            </div>
+
+                            <!-- RE-Password -->
+                            <div class="row form-group">
+                                <div class="col col-md-3">
+                                    <label for="rePassword" class=" form-control-label">Konfirmasi Password</label>
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    <input type="Password" id="rePassword" name="rePassword" placeholder="Konfirmasi Ulang Password" class="form-control">
+                                </div>
+                            </div>
+
+                            <!-- Gambar -->
+                            <div class="row form-group">
+                                <div class="col col-md-3">
+                                    <label for="gambar" class=" form-control-label">Gambar</label>
+                                </div>
+                                <div class="col-12 col-md-9">
+                                    <input type="file" id="gambar" name="gambar" class="form-control">
+                                    <img src="../images/user/<?= $row['gambar']; ?>" width="200">
+                                </div>
+                            </div>
+                        <?php endwhile; ?>
+
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary btn-sm" name="submit">
+                                <i class="fa fa-plus-circle"></i> Simpan Perubahan
+                            </button>
                         </div>
-
-                        <!-- Username-->
-                        <div class="row form-group">
-                            <div class="col col-md-3">
-                                <label for="username" class=" form-control-label">Username</label>
-                            </div>
-                            <div class="col-12 col-md-9">
-                                <input type="text" id="username" name="username" placeholder="Masukkan Username" class="form-control" value="">
-                                <small class="help-block form-text">Mohon masukkan Username dgn benar</small>
-                            </div>
-                        </div>
-
-                        <!-- Password -->
-                        <div class="row form-group">
-                            <div class="col col-md-3">
-                                <label for="passwordLama" class=" form-control-label">Password Lama </label>
-                            </div>
-                            <div class="col-12 col-md-9">
-                                <input type="passwordLama" id="passwordLama" name="passwordLama" placeholder="Masukkan Password Lama" class="form-control">
-                            </div>
-                        </div>
-
-                        <!-- Password Baru -->
-                        <div class="row form-group">
-                            <div class="col col-md-3">
-                                <label for="passwordBaru" class=" form-control-label">Password Baru</label>
-                            </div>
-                            <div class="col-12 col-md-9">
-                                <input type="passwordBaru" id="passwordBaru" name="passwordBaru" placeholder="Masukkan Password Baru" class="form-control" value="">
-                            </div>
-                        </div>
-
-                        <!-- RE-Password -->
-                        <div class="row form-group">
-                            <div class="col col-md-3">
-                                <label for="rePassword" class=" form-control-label">Konfirmasi Password</label>
-                            </div>
-                            <div class="col-12 col-md-9">
-                                <input type="rePassword" id="rePassword" name="rePassword" placeholder="Konfirmasi Ulang Password" class="form-control">
-                            </div>
-                        </div>
-
-                        <!-- Gambar -->
-                        <div class="row form-group">
-                            <div class="col col-md-3">
-                                <label for="gambar" class=" form-control-label">Gambar</label>
-                            </div>
-                            <div class="col-12 col-md-9">
-                                <input type="file" id="gambar" name="gambar" class="form-control">
-                                <img src="">
-                            </div>
-                        </div>
-
-                    </form>
+                        </form>
                 </div>
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-primary btn-sm" name="submit">
-                        <i class="fa fa-plus-circle"></i> Submit
-                    </button>
-                </div>
+
             </div>
 
         </div>
