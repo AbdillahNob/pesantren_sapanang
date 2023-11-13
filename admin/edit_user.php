@@ -19,6 +19,7 @@ require 'template/sidebar_mobile.php';
                         <input type="hidden" name="id_user" value="">
                         <input type="hidden" name="no_file" value="">
                         <input type="hidden" name="gambar_lama" value="">
+                        <input type="hidden" name="pass" value="">
 
                         <!-- Nama User -->
                         <div class="row form-group">
@@ -45,10 +46,20 @@ require 'template/sidebar_mobile.php';
                         <!-- Password -->
                         <div class="row form-group">
                             <div class="col col-md-3">
-                                <label for="password" class=" form-control-label">Password</label>
+                                <label for="passwordLama" class=" form-control-label">Password Lama </label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="password" id="password" name="password" placeholder="Masukkan Password" class="form-control" value="">
+                                <input type="passwordLama" id="passwordLama" name="passwordLama" placeholder="Masukkan Password Lama" class="form-control">
+                            </div>
+                        </div>
+
+                        <!-- Password Baru -->
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                <label for="passwordBaru" class=" form-control-label">Password Baru</label>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <input type="passwordBaru" id="passwordBaru" name="passwordBaru" placeholder="Masukkan Password Baru" class="form-control" value="">
                             </div>
                         </div>
 

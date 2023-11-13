@@ -63,7 +63,7 @@ function insert($data, $no_file)
 
             $result = mysqli_query($con, "SELECT * FROM user WHERE status = '$status'");
             // Validasi agr role ADMIN hanya 1.
-            if(mysqli_num_rows($result) > 0 && $status == 'admin'){
+            if (mysqli_num_rows($result) > 0 && $status == 'admin') {
                 echo "
                     <script>
                         alert('Admin hanya boleh 1 akun !');
@@ -76,7 +76,7 @@ function insert($data, $no_file)
             // fungsi upload tdk diluar krna apabila ggl tambah tpi input gmbr benar maka gmbr ttp trkrm ke server
             $gambar = upload($no_foto);
             // jika gambar tdk sesuai kriteria
-            if(!$gambar){
+            if (!$gambar) {
                 return false;
             }
 
@@ -149,4 +149,63 @@ function upload($no_foto)
     move_uploaded_file($tmpFile, $fileUpload);
 
     return $namaFotoBaru;
+}
+
+function update($data, $no_file)
+{
+
+    $no_foto = $no_file;
+    if ($no_file != 2) {
+
+        $gambar_lama = $data['gambar_lama'];
+        // Validasi gambar update
+        if ($_FILES['gambar']['error'] == 4) {
+            $gambar = $gambar_lama;
+            
+        } else {
+            $gambar = upload($no_foto);
+
+            // Validasi bila gambar yg di-update tdk memenuhi syarat
+            if(!$gambar){
+                return false;
+            }
+        }
+    }
+
+    // notes
+    // 1.user
+    // 2.siswa
+    // 3.struktur
+    // 4.Informasi
+
+    if($no_file == 1){
+        global $con;
+        $id = $data['id_user'];
+        $nama = $data['nama'];
+        $username = $data['username'];
+        $passwordLama = $data['passwordLama'];
+        $passwordBaru = $data['passwordBaru'];
+        $rePassword = $data['rePassword'];
+
+        $result = mysqli_query($con, "SELECT * FROM user WHERE id_user = $id");
+        $row = mysqli_fetch_assoc($result);
+
+        // Bila Password Lama benar
+        if(password_verify($passwordLama, $row['password'])){
+
+        } 
+        // Bila Password ad tpi salah pd saat di verifikasi
+        else if($passwordLama == true){
+            echo "
+                <script>
+                    alert('Maaf Password lama anda Salah !');
+                </script>
+            ";
+        }
+        // Bila Password tdk di input
+        else{
+            $password = $data['pass'];
+        }
+    }
+
 }
