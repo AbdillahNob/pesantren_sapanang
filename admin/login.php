@@ -35,6 +35,7 @@ if(isset($_POST['login'])){
 
         if(password_verify($password, $row['password'])){
                 $_SESSION['hal'] = true;
+                $_SESSION['username'] = $row['username'];
 
             if(isset($_POST['remember'])){
                 setcookie('id', $row['id_user'], time()+60*60*24);

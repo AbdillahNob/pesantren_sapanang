@@ -1,13 +1,23 @@
-<?php 
+<?php
 session_start();
+// require '../../function/function.php';
 
-if(!isset($_SESSION['hal'])){
-    echo"
+if (!isset($_SESSION['hal'])) {
+    echo "
         <script>
             window.location.replace('login.php');
         </script>
     ";
 }
+$username = $_SESSION['username'];
+
+$con = mysqli_connect("localhost", "root", "", "pesantren_sapanang");
+$query_total = mysqli_query($con, "SELECT * FROM user");
+
+
+$query_user = "SELECT * FROM user WHERE username = '$username'";
+$result = mysqli_query($con, $query_user);
+$data = mysqli_fetch_assoc($result);
 
 ?>
 
@@ -29,6 +39,11 @@ if(!isset($_SESSION['hal'])){
     <link rel="apple-touch-icon" sizes="72x72" href="../images/logo-3.png">
     <link rel="apple-touch-icon" sizes="114x114" href="../images/logo-4.png">
 
+    <style type="text/css">
+        .upper {
+            text-transform: uppercase;
+        }
+    </style>
 
 
     <!-- Fontfaces CSS-->
@@ -71,23 +86,25 @@ if(!isset($_SESSION['hal'])){
                     <div class="image img-cir img-120">
                         <img src="images/icon/avatar-big-01.jpg" alt="John Doe" />
                     </div>
-                    <h4 class="name">Abdillah P Al-Iman</h4>
-                    <a>ADMIN</a>
+                    <h4 class="name"><?= $data['nama']; ?></h4>
+                    <b><a class="upper"><?= $data['status']; ?></a></b>
                 </div>
                 <nav class="navbar-sidebar2">
                     <ul class="list-unstyled navbar__list">
-                        <li class="active has-sub">
+                        <li>
                             <a class="js-arrow" href="#">
                                 <a href="super_dashboard.php">
                                     <i class="fas fa-tachometer-alt"></i>Dashboard
                                 </a>
                             </a>
                         </li>
-                        <li>
-                            <a href="user.php">
-                                <i class="fas fa-user-circle"></i>User</a>
-                            <span class="inbox-num">3</span>
-                        </li>
+                        <?php if ($data['status'] == 'admin') : ?>
+                            <li>
+                                <a href="user.php">
+                                    <i class="fas fa-user-circle"></i>User</a>
+                                <span class="inbox-num"><?= mysqli_num_rows($query_total); ?></span>
+                            </li>
+                        <?php endif; ?>
 
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
@@ -145,7 +162,7 @@ if(!isset($_SESSION['hal'])){
                                             <a href="form.php">
                                                 <i class="zmdi zmdi-account"></i>Register Akun</a>
                                         </div>
-           
+
                                         <div class="account-dropdown__item">
                                             <a href="log_out.php" onclick="return confirm('Yakin mau keluar ?')">
                                                 <i class="zmdi zmdi-close-circle"></i>Keluar</a>
