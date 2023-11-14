@@ -1,6 +1,6 @@
 <?php
 require 'template/header.php';
-require 'template/sidebar_mobile.php';
+require '../function/function.php';
 
 ?>
 
