@@ -1,3 +1,15 @@
+<?php 
+    session_start();
+
+    if(isset($_SESSION['hal'])){
+        echo"
+            <script>
+                window.location.replace('admin/super_dashboard.php');
+            </script>
+        ";
+    }
+?>
+
 <!doctype html>
 
 <html lang="en-gb" class="no-js">

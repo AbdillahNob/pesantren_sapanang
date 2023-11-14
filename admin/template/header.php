@@ -1,3 +1,16 @@
+<?php 
+session_start();
+
+if(!isset($_SESSION['hal'])){
+    echo"
+        <script>
+            window.location.replace('login.php');
+        </script>
+    ";
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -132,12 +145,9 @@
                                             <a href="form.php">
                                                 <i class="zmdi zmdi-account"></i>Register Akun</a>
                                         </div>
+           
                                         <div class="account-dropdown__item">
-                                            <a href="edit_user.php?id=">
-                                                <i class="zmdi zmdi-account-cog"></i>Edit Akun</a>
-                                        </div>
-                                        <div class="account-dropdown__item">
-                                            <a href="login.php" onclick="return confirm('Yakin mau keluar ?')">
+                                            <a href="log_out.php" onclick="return confirm('Yakin mau keluar ?')">
                                                 <i class="zmdi zmdi-close-circle"></i>Keluar</a>
                                         </div>
                                     </div>

@@ -1,64 +1,31 @@
-<?php 
-require '../function/function.php';
+<?php
 session_start();
+require '../function/function.php';
 
-// Validasi apabila msh ad cookie di client browser
-if(isset($_COOKIE['id']) && isset($_COOKIE['key'])){
-    $id = $_COOKIE['id'];
-    $username = $_COOKIE['key'];
+$nama = $_SESSION['nama'];
+$username = $_SESSION['username'];
+$status = $_SESSION['status'];
 
-    $data = tampil("SELECT * FROM user WHERE id_user = $id");
-    $validasi = mysqli_fetch_assoc($data);
+// var_dump($_SESSION['nama']);
 
-    if($username == hash('sha256', $validasi['username'])){
-        $_SESSION['hal'] = true;
-    }
-}
 
-// Jgn Login klu belum Log-Out
-if(isset($_SESSION['hal'])){
-    echo "
-        <script>
-            window.location.replace('super_dashboard.php');
-        </script>
-    ";
-}
+if (isset($_POST['submit'])) {
 
-if(isset($_POST['login'])){
-
-    $username = $_POST['username'];
-    $result = tampil("SELECT * FROM user WHERE username ='$username'");
-    
-    if(mysqli_num_rows($result) > 0){
-        $password = $_POST['password'];
-        $row = mysqli_fetch_assoc($result);
-
-        if(password_verify($password, $row['password'])){
-                $_SESSION['hal'] = true;
-
-            if(isset($_POST['remember'])){
-                setcookie('id', $row['id_user'], time()+60*60*24);
-                setcookie('key', hash('sha256', $row['username']), time()+60*60*24);
-            }
-            echo"
-                <script>
-                    alert('Berhasil Login Kanda !');
-                    window.location.replace('super_dashboard.php');
-                </script>
-            ";
-        }else{
-            echo"
-                <script>
-                    alert('Password Anda salah !');
-                </script>
-            ";
-        }
-    }else{
+    $no_file = $_GET['no_file'];
+    if (insert($_POST, $no_file) > 0) {
         echo "
             <script>
-                alert('Maaf Username anda belum daftar akun !');
+                alert('Berhasil Tambah Akun');
+                window.location.replace('login.php');
             </script>
-        ";   
+        ";
+    } else {
+        echo "
+            <script>
+                alert('Gagal Tambah Akun');
+                window.location.replace('register.php');
+            </script>
+        ";
     }
 }
 
@@ -76,13 +43,11 @@ if(isset($_POST['login'])){
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Pesantren Nurul Hidayah Sapanang</title>
+    <title>Register Akun</title>
     <link rel="shortcut icon" href="../images/pesantren.png">
     <link rel="apple-touch-icon" sizes="57x57" href="../images/logo-2.png">
     <link rel="apple-touch-icon" sizes="72x72" href="../images/logo-3.png">
     <link rel="apple-touch-icon" sizes="114x114" href="../images/logo-4.png">
-
-
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -119,31 +84,35 @@ if(isset($_POST['login'])){
                             </a>
                         </div>
                         <div class="login-form">
-                            <form action="" method="post">
+                            <form action="?no_file=1" method="post" enctype="multipart/form-data">
+                                <input type="hidden" name="nama" value="<?= $nama ?>">
+                                <input type="hidden" name="username" value="<?= $username ?>">
+                                <input type="hidden" name="status" value="<?= $status ?>">
+
                                 <div class="form-group">
-                                    <label>Username</label>
-                                    <input class="au-input au-input--full" type="text" name="username" placeholder="Username" autofocus>
+                                    <label for="password">Password</label>
+                                    <input class="au-input au-input--full" type="password" name="password" placeholder="Masukkan Password" required>
                                 </div>
+
                                 <div class="form-group">
-                                    <label>Password</label>
-                                    <input class="au-input au-input--full" type="password" name="password" placeholder="Password">
+                                    <label for="rePassword">Konfirmasi Password</label>
+                                    <input class="au-input au-input--full" type="text" name="rePassword" placeholder="Konfirmasi password" required>
                                 </div>
-                                <div class="login-checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember">Remember Me
-                                    </label>
+
+                                <div class="form-group">
+                                    <label for="gambar">Gambar</label>
+                                    <input class="au-input au-input--full" type="file" name="gambar" required>
                                 </div>
-                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit" name="login">Login</button>
-                           
+
+                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit" name="submit">Submit</button>
+
                             </form>
                             <div class="register-link">
                                 <p>
                                     Sudah Punya Akun ?
-                                    <a href="register.php">Registrasi Akun</a>
+                                    <a href="login.php">Login</a>
                                 </p>
                             </div>
-                
-                            <a href="../index.php"><i class="fa fa-home"></i></a>
                         </div>
                     </div>
                 </div>

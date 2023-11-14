@@ -1,7 +1,7 @@
 <?php
-require 'template/sidebar_desktop.php';
-require 'template/header_desktop.php';
+require 'template/header.php';
 require 'template/sidebar_mobile.php';
+
 ?>
 
 

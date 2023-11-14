@@ -1,10 +1,16 @@
 <?php
+session_start();
+
 if (isset($_POST['next'])) {
     $_SESSION['nama'] = $_POST['nama'];
     $_SESSION['username'] = $_POST['username'];
     $_SESSION['status'] = $_POST['status'];
 
-    var_dump($_SESSION['nama']);
+    echo"
+        <script>
+            window.location.replace('register2.php');
+        </script>
+    ";
 }
 ?>
 
@@ -84,8 +90,7 @@ if (isset($_POST['next'])) {
                                         </select>
                                     </div>
                                 </div>
-
-                                <a href=""><button class="au-btn au-btn--block au-btn--green m-b-20" type="submit" name="next">Next</a></button>
+                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit" name="next">Next</button>
 
                             </form>
                             <div class="register-link">
