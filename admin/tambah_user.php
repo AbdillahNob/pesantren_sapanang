@@ -85,7 +85,7 @@ if (isset($_POST['submit'])) {
                         <!-- RE-Password -->
                         <div class="row form-group">
                             <div class="col col-md-3">
-                                <label for="rePassword" class=" form-control-label">Konfirmasi Password</label>
+                                <label for="rePassword" class="form-control-label">Konfirmasi Password</label>
                             </div>
                             <div class="col-12 col-md-9">
                                 <input type="Password" id="rePassword" name="rePassword" placeholder="Konfirmasi Ulang Password" class="form-control" required>
@@ -95,7 +95,7 @@ if (isset($_POST['submit'])) {
                         <!-- Gambar -->
                         <div class="row form-group">
                             <div class="col col-md-3">
-                                <label for="gambar" class=" form-control-label">Gambar</label>
+                                <label for="gambar" class="form-control-label">Gambar</label>
                             </div>
                             <div class="col-12 col-md-9">
                                 <input type="file" id="gambar" name="gambar" class="form-control" required>

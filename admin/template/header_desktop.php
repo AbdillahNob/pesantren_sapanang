@@ -26,6 +26,10 @@
                                                 <i class="zmdi zmdi-account"></i>Register Akun</a>
                                         </div>
                                         <div class="account-dropdown__item">
+                                            <a href="edit_user.php">
+                                                <i class="zmdi zmdi-account-cog"></i>Edit Akun</a>
+                                        </div>
+                                        <div class="account-dropdown__item">
                                             <a href="login.php" onclick="return confirm('Yakin mau keluar ?')">
                                                 <i class="zmdi zmdi-close-circle"></i>Keluar</a>
                                         </div>

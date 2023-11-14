@@ -1,3 +1,13 @@
+<?php
+if (isset($_POST['next'])) {
+    $_SESSION['nama'] = $_POST['nama'];
+    $_SESSION['username'] = $_POST['username'];
+    $_SESSION['status'] = $_POST['status'];
+
+    var_dump($_SESSION['nama']);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +20,11 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Register</title>
+    <title>Register Akun</title>
+    <link rel="shortcut icon" href="../images/pesantren.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="../images/logo-2.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/logo-3.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/logo-4.png">
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -49,34 +63,35 @@
                         <div class="login-form">
                             <form action="" method="post">
                                 <div class="form-group">
-                                    <label>Username</label>
-                                    <input class="au-input au-input--full" type="text" name="username" placeholder="Username">
+                                    <label for="nama">Nama</label>
+                                    <input class="au-input au-input--full" type="text" name="nama" placeholder="Masukkan Nama" required>
                                 </div>
+
                                 <div class="form-group">
-                                    <label>Email Address</label>
-                                    <input class="au-input au-input--full" type="email" name="email" placeholder="Email">
+                                    <label for="username">Username</label>
+                                    <input class="au-input au-input--full" type="text" name="username" placeholder="Masukkan Username" required>
                                 </div>
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <input class="au-input au-input--full" type="password" name="password" placeholder="Password">
-                                </div>
-                                <div class="login-checkbox">
-                                    <label>
-                                        <input type="checkbox" name="aggree">Agree the terms and policy
-                                    </label>
-                                </div>
-                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">register</button>
-                                <div class="social-login-content">
-                                    <div class="social-button">
-                                        <button class="au-btn au-btn--block au-btn--blue m-b-20">register with facebook</button>
-                                        <button class="au-btn au-btn--block au-btn--blue2">register with twitter</button>
+                                <!-- Role -->
+                                <div class="row form-group">
+                                    <div class="col col-md-3">
+                                        <label for="status" class=" form-control-label">Status akun</label>
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        <select name="status" id="status" class="form-control-sm form-control" required>
+                                            <option value="">Pilih Status</option>
+                                            <option value="admin">Admin</option>
+                                            <option value="user">User</option>
+                                        </select>
                                     </div>
                                 </div>
+
+                                <a href=""><button class="au-btn au-btn--block au-btn--green m-b-20" type="submit" name="next">Next</a></button>
+
                             </form>
                             <div class="register-link">
                                 <p>
-                                    Already have account?
-                                    <a href="#">Sign In</a>
+                                    Sudah Punya Akun ?
+                                    <a href="login.php">Login</a>
                                 </p>
                             </div>
                         </div>

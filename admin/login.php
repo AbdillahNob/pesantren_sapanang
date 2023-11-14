@@ -1,3 +1,63 @@
+<?php 
+require '../function/function.php';
+session_start();
+
+// Validasi apabila msh ad cookie di client browser
+if(isset($_COOKIE['id']) && isset($_COOKIE['key'])){
+    $id = $_COOKIE['id'];
+    $username = $_COOKIE['key'];
+
+    $data = tampil("SELECT * FROM user WHERE id_user = $id");
+    $validasi = mysqli_fetch_assoc($data);
+
+    if($username == hash('sha256', $validasi['username'])){
+        $_SESSION['hal'] = true;
+    }
+}
+
+// Jgn Login klu belum Log-Out
+if(isset($_SESSION['hal'])){
+    echo "
+        <script>
+            window.location.replace('super_dashboard.php');
+        </script>
+    ";
+}
+
+if(isset($_POST['login'])){
+
+    $username = $_POST['username'];
+    $result = tampil("SELECT * FROM user WHERE username ='$username'");
+    
+    if(mysqli_num_rows($result) > 0){
+        $password = $_POST['password'];
+        $row = mysqli_fetch_assoc($result);
+
+        if(password_verify($password, $row['password'])){
+                $_SESSION['hal'] = true;
+
+            if(isset($_POST['remember'])){
+                setcookie('id', $row['id_user'], time()+60*60*24);
+                setcookie('key', hash('sha256', $row['username']), time()+60*60*24);
+            }
+        }else{
+            echo"
+                <script>
+                    alert('Password Anda salah !');
+                </script>
+            ";
+        }
+    }else{
+        echo "
+            <script>
+                alert('Maaf Username anda belum daftar akun !');
+            </script>
+        ";   
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,7 +116,7 @@
                             <form action="" method="post">
                                 <div class="form-group">
                                     <label>Username</label>
-                                    <input class="au-input au-input--full" type="email" name="username" placeholder="Username" autofocus>
+                                    <input class="au-input au-input--full" type="text" name="username" placeholder="Username" autofocus>
                                 </div>
                                 <div class="form-group">
                                     <label>Password</label>
@@ -67,16 +127,10 @@
                                         <input type="checkbox" name="remember">Remember Me
                                     </label>
                                 </div>
-                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">Login</button>
+                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit" name="login">Login</button>
                            
                             </form>
-                            <div class="register-link">
-                                <p>
-                                    Anda tidak punya Akun ?
-                                    <a href="registrasi.php">Registrasi disini</a>
-                                </p>
-                                
-                            </div>
+                
                             <a href="../index.php"><i class="fa fa-home"></i></a>
                         </div>
                     </div>
