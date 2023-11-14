@@ -189,24 +189,26 @@ $data = mysqli_fetch_assoc($result);
                         <div class="image img-cir img-120">
                             <img src="images/icon/avatar-big-01.jpg" alt="John Doe" />
                         </div>
-                        <h4 class="name">Abdillah P Al-Iman</h4>
-                        <a>Admin</a>
+                        <h4 class="name"><?= $data['nama']; ?></h4>
+                        <b><a class="upper"><?= $data['status']; ?></a></b>
                     </div>
 
                     <nav class="navbar-sidebar2">
                         <ul class="list-unstyled navbar__list">
-                            <li class="active has-sub">
+                            <li>
                                 <a class="js-arrow" href="#">
                                     <a href="super_dashboard.php">
                                         <i class="fas fa-tachometer-alt"></i>Dashboard
                                     </a>
                                 </a>
                             </li>
-                            <li>
-                                <a href="user.php">
-                                    <i class="fas fa-user-circle"></i>User</a>
-                                <span class="inbox-num">3</span>
-                            </li>
+                            <?php if ($data['status'] == 'admin') : ?>
+                                <li>
+                                    <a href="user.php">
+                                        <i class="fas fa-user-circle"></i>User</a>
+                                    <span class="inbox-num"><?= mysqli_num_rows($query_total); ?></span>
+                                </li>
+                            <?php endif; ?>
 
                             <li class="has-sub">
                                 <a class="js-arrow" href="#">
