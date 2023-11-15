@@ -64,7 +64,7 @@ if (isset($_POST['submit'])) {
                                     <label for="username" class=" form-control-label">Username :</label>
                                 </div>
                                 <div class="col-12 col-md-9">
-                                    <b><?= $row['username']; ?></b>
+                                    <b class="upper"><?= $row['username']; ?></b>
                                 </div>
                             </div>
 

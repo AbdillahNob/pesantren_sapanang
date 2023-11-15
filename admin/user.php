@@ -45,7 +45,7 @@ $query_user = tampil("SELECT * FROM user");
                                 <tr>
                                     <td><?= $n++ ?>.</td>
                                     <td>
-                                        <img src="../images/user/<?= $row['gambar'] ?>" height="200">
+                                        <img src="images/user/<?= $row['gambar'] ?>" height="200">
                                     </td>
                                     <td>
                                         <div class="table-data__info">

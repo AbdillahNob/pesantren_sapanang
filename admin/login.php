@@ -12,6 +12,7 @@ if(isset($_COOKIE['id']) && isset($_COOKIE['key'])){
 
     if($username == hash('sha256', $validasi['username'])){
         $_SESSION['hal'] = true;
+        $_SESSION['username'] = $validasi['username'];
     }
 }
 

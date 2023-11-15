@@ -83,8 +83,8 @@ $data = mysqli_fetch_assoc($result);
             </div>
             <div class="menu-sidebar2__content js-scrollbar1">
                 <div class="account2">
-                    <div class="image img-cir img-120">
-                        <img src="images/icon/avatar-big-01.jpg" alt="John Doe" />
+                    <div class="image img-cir img-100" >
+                        <img src="images/user/<?= $data['gambar']; ?>" class="img-fluid" alt="Responsive image" />
                     </div>
                     <h4 class="name"><?= $data['nama']; ?></h4>
                     <b><a class="upper"><?= $data['status']; ?></a></b>
@@ -186,8 +186,8 @@ $data = mysqli_fetch_assoc($result);
                 </div>
                 <div class="menu-sidebar2__content js-scrollbar2">
                     <div class="account2">
-                        <div class="image img-cir img-120">
-                            <img src="images/icon/avatar-big-01.jpg" alt="John Doe" />
+                        <div class="image img-cir img-100">
+                            <img src="images/user/<?= $data['gambar']; ?>" alt="Responsive image" />
                         </div>
                         <h4 class="name"><?= $data['nama']; ?></h4>
                         <b><a class="upper"><?= $data['status']; ?></a></b>
