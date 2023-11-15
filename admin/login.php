@@ -1,5 +1,6 @@
 <?php 
 require '../function/function.php';
+require '../admin/template/call_sweetAlert.php';
 session_start();
 
 // Validasi apabila msh ad cookie di client browser
@@ -44,21 +45,53 @@ if(isset($_POST['login'])){
             }
             echo"
                 <script>
-                    alert('Berhasil Login Kanda !');
-                    window.location.replace('super_dashboard.php');
+                    setTimeout(function () {
+                        Swal.fire({
+                            title: 'Berhasil',
+                            text: 'Berhasil Login',
+                            icon: 'success',
+                            timer: '6200',
+                            showConfirmButton: false
+                        });
+                    },10);
+                    window.setTimeout(function(){
+                        window.location.replace('super_dashboard.php');
+                    },3000);
                 </script>
             ";
         }else{
             echo"
                 <script>
-                    alert('Password Anda salah !');
+                    setTimeout(function () {
+                        Swal.fire({
+                            title: 'INFO',
+                            text: 'Maaf Password anda Salah !',
+                            icon: 'error',
+                            timer: '6200',
+                            showConfirmButton: false
+                        });
+                    },10);
+                    window.setTimeout(function(){
+                        window.location.replace('login.php');
+                    },3000);
                 </script>
             ";
         }
     }else{
         echo "
             <script>
-                alert('Maaf Username anda belum daftar akun !');
+            setTimeout(function () {
+                Swal.fire({
+                    title: 'INFO',
+                    text: 'Maaf Username anda belum terdaftar !',
+                    icon: 'warning',
+                    timer: '6200',
+                    showConfirmButton: false
+                });
+            },10);
+            window.setTimeout(function(){
+                window.location.replace('login.php');
+            },3000);
             </script>
         ";   
     }
