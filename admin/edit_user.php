@@ -11,15 +11,35 @@ if (isset($_POST['submit'])) {
     if (update($_POST, $no_file) > 0) {
         echo "
             <script>
-                alert('Berhasil Edit User');
-                window.location.replace('user.php');
+                setTimeout(function () {
+                    Swal.fire({
+                        title: 'Berhasil',
+                        text: 'Berhasil Edit User',
+                        icon: 'success',
+                        timer: '6200',
+                        showConfirmButton: false
+                    });
+                },10);
+                window.setTimeout(function(){
+                    window.location.replace('user.php');
+                },3000);
             </script>
         ";
     } else {
         echo "
         <script>
-            alert('Tidak perubahan Data');
-            window.location.replace('user.php');
+            setTimeout(function () {
+                Swal.fire({
+                    title: 'INFO',
+                    text: 'Tidak ada perubahan User',
+                    icon: 'warning',
+                    timer: '6200',
+                    showConfirmButton: false
+                });
+            },10);
+            window.setTimeout(function(){
+                window.location.replace('user.php');
+            },3000);
         </script>
     ";
     }
@@ -106,7 +126,7 @@ if (isset($_POST['submit'])) {
                                 </div>
                                 <div class="col-12 col-md-9">
                                     <input type="file" id="gambar" name="gambar" class="form-control">
-                                    <img src="../images/user/<?= $row['gambar']; ?>" width="200">
+                                    <img src="images/user/<?= $row['gambar']; ?>" width="200">
                                 </div>
                             </div>
                         <?php endwhile; ?>

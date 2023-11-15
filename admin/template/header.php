@@ -68,6 +68,10 @@ $data = mysqli_fetch_assoc($result);
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
 
+    <!-- SweetAlert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css" rel="stylesheet"> -->
+
 </head>
 
 <body class="animsition">
@@ -83,7 +87,7 @@ $data = mysqli_fetch_assoc($result);
             </div>
             <div class="menu-sidebar2__content js-scrollbar1">
                 <div class="account2">
-                    <div class="image img-cir img-100" >
+                    <div class="image img-cir img-100">
                         <img src="images/user/<?= $data['gambar']; ?>" class="img-fluid" alt="Responsive image" />
                     </div>
                     <h4 class="name"><?= $data['nama']; ?></h4>

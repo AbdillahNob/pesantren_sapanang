@@ -46,6 +46,9 @@
 <script src="vendor/vector-map/jquery.vmap.sampledata.js"></script>
 <script src="vendor/vector-map/jquery.vmap.world.js"></script>
 
+<!-- SweetAlert -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js"></script> -->
+
 <!-- Main JS-->
 <script src="js/main.js"></script>
 <!-- End Footer -->

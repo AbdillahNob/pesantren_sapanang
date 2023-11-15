@@ -8,15 +8,35 @@ if (isset($_POST['submit'])) {
     if (insert($_POST, $no_file) > 0) {
         echo "
             <script>
-                alert('Tambah Akun berhasil wkwk');
-                window.location.replace('user.php');
+                setTimeout(function () {
+                    Swal.fire({
+                        title: 'Berhasil',
+                        text: 'Berhasil Tambah User',
+                        icon: 'success',
+                        timer: '6200',
+                        showConfirmButton: false
+                    });
+                },10);
+                window.setTimeout(function(){
+                    window.location.replace('user.php');
+                },3000);
             </script>
         ";
     } else {
         echo "
         <script>
-            alert('Gagal');
-            window.location.replace('user.php');
+            setTimeout(function () {
+                Swal.fire({
+                    title: 'INFO',
+                    text: 'Gagal Tambah User',
+                    icon: 'warning',
+                    timer: '6200',
+                    showConfirmButton: false
+                });
+            },10);
+            window.setTimeout(function(){
+                window.location.replace('user.php');
+            },3000);
         </script>
     ";
     }

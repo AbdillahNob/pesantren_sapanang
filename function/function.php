@@ -136,7 +136,7 @@ function upload($no_foto)
     // 3. Struktur
     // 4. Informasi
     if ($no_foto == 1) {
-        $fileDir = "images/user/";
+        $fileDir = "../admin/images/user/";
     }
 
     $namaFotoBaru = uniqid();
