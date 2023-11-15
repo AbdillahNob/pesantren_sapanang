@@ -2,6 +2,8 @@
 require 'template/header.php';
 require '../function/function.php';
 
+
+$query_user = tampil("SELECT * FROM user");
 ?>
 
 
@@ -40,11 +42,11 @@ require '../function/function.php';
             <div class="overview__inner">
                 <div class="overview-box clearfix">
                     <div class="icon">
-                        <i class="zmdi zmdi-account-o"></i>
+                        <i class="zmdi zmdi-account-circle"></i>
                     </div>
                     <div class="text">
-                        <h2>10368</h2>
-                        <span>members online</span>
+                        <h2><?= mysqli_num_rows($query_user); ?></h2>
+                        <span>Akun</span>
                     </div>
                 </div>
                 <div class="overview-chart">
@@ -58,11 +60,11 @@ require '../function/function.php';
             <div class="overview__inner">
                 <div class="overview-box clearfix">
                     <div class="icon">
-                        <i class="zmdi zmdi-shopping-cart"></i>
+                        <i class="zmdi zmdi-accounts"></i>
                     </div>
                     <div class="text">
                         <h2>388,688</h2>
-                        <span>items solid</span>
+                        <span>Siswa</span>
                     </div>
                 </div>
                 <div class="overview-chart">
@@ -76,11 +78,11 @@ require '../function/function.php';
             <div class="overview__inner">
                 <div class="overview-box clearfix">
                     <div class="icon">
-                        <i class="zmdi zmdi-calendar-note"></i>
+                        <i class="zmdi zmdi-account-box"></i>
                     </div>
                     <div class="text">
                         <h2>1,086</h2>
-                        <span>this week</span>
+                        <span>Guru</span>
                     </div>
                 </div>
                 <div class="overview-chart">
@@ -94,11 +96,11 @@ require '../function/function.php';
             <div class="overview__inner">
                 <div class="overview-box clearfix">
                     <div class="icon">
-                        <i class="zmdi zmdi-money"></i>
+                        <i class="zmdi zmdi-info"></i>
                     </div>
                     <div class="text">
                         <h2>$1,060,386</h2>
-                        <span>total earnings</span>
+                        <span>Informasi</span>
                     </div>
                 </div>
                 <div class="overview-chart">
