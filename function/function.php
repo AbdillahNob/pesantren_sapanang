@@ -121,7 +121,7 @@ function insert($data, $no_file)
         if ($j_nis != 10) {
             echo "
                 <script>
-                    alert('Maaf Nis anda kurang dari 10 digit');
+                    alert('Maaf Nis anda Harus 10 digit');
                 </script>
             ";
             return false;
@@ -137,6 +137,64 @@ function insert($data, $no_file)
                                     '$tgl_lahir',
                                     '$kelas')
                                     ";
+    } else if ($no_file == 3) {
+        $nik = $data['nik'];
+        $nama = $data['nama'];
+        $jenis_kelamin = $data['jenis_kelamin'];
+        $tempat_lahir = $data['tempat_lahir'];
+        $tgl_lahir = $data['tanggal_lahir'];
+        $telepon = $data['telepon'];
+        $jabatan = $data['jabatan'];
+
+        // Validasi apakah jenis kelamin ada/tdk
+        if (!$jenis_kelamin) {
+            echo "
+                <script>
+                    alert('Anda tidak isi Jenis Kelamin Anda !');
+                </script>
+                    ";
+            return false;
+        }
+
+        // Validasi jumlah digit nis yg di input
+        $j_nik = strlen($nik);
+        if ($j_nik != 16) {
+            echo "
+                <script>
+                    alert('Maaf Nik anda harus 16 digit');
+                </script>
+                ";
+            return false;
+        }
+
+        $result = mysqli_query($con, "SELECT * FROM struktur WHERE jabatan = '$jabatan'");
+        //Validasi Kepala yayasan hanya 1
+        if(mysqli_num_rows($result) > 0 && $jabatan == "kepala yayasan"){
+            echo "
+                <script>
+                    alert('Maaf Kepala Yayasan hanya 1 orang !');
+                </script>
+                ";
+            return false;
+        }else{
+
+             // fungsi upload tdk diluar krna apabila ggl tambah tpi input gmbr benar maka gmbr ttp trkrm ke server
+            $gambar = upload($no_foto);
+            // Bila foto tdk memenuhi syarat
+            if(!$gambar){
+                return false;
+            }
+            $query = "INSERT INTO struktur (nik, nama, jenis_kelamin, tempat_lahir, tgl_lahir, no_telepon, jabatan, gambar) VALUES 
+                                            ('$nik',
+                                            '$nama',
+                                            '$jenis_kelamin',
+                                            '$tempat_lahir',
+                                            '$tgl_lahir',
+                                            '$telepon',
+                                            '$jabatan',
+                                            '$gambar')
+                                            ";
+        }
     }
 
     mysqli_query($con, $query);
@@ -178,6 +236,8 @@ function upload($no_foto)
     // 4. Informasi
     if ($no_foto == 1) {
         $fileDir = "../admin/images/user/";
+    } else if($no_foto == 3){
+        $fileDir = "../images/struktur/";
     }
 
     $namaFotoBaru = uniqid();
@@ -307,9 +367,9 @@ function update($data, $no_file)
             return false;
         }
         // Validasi Apakah ad Status baru/tdk, datanya berubah/hilang bila name-nya menggunakan name/data sebelumnya.
-        if(!$status_baru){
+        if (!$status_baru) {
             $status = $data['status_lama'];
-        }else{
+        } else {
             $status = $status_baru;
         }
 
@@ -342,7 +402,7 @@ function hapus($id, $no_file)
 
     if ($no_file == 1) {
         $query = "DELETE FROM user WHERE id_user = $id";
-    } else if($no_file == 2){
+    } else if ($no_file == 2) {
         $query = "DELETE FROM siswa WHERE id_siswa = $id";
     }
     mysqli_query($con, $query);

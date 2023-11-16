@@ -9,10 +9,10 @@ require 'template/header.php';
         <div class="container-fluid">
 
             <!-- DATA TABLE -->
-            <h3 class="title-5 m-b-35"><i class="fa fa-users"></i> Data Struktur</h3>
+            <h3 class="title-5 m-b-35"><i class="fa fa-address-card"></i> Data Struktur</h3>
             <div class="table-data__tool">
                 <div class="table-data__tool-right">
-                    <a href="tambah_team.php">
+                    <a href="tambah_struktur.php">
                         <button class="au-btn au-btn-icon au-btn--green au-btn--small">
                             <i class="zmdi zmdi-plus"></i>Tambah Struktur
                         </button>

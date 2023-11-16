@@ -2,6 +2,46 @@
 require 'template/header.php';
 require '../function/function.php';
 
+if (isset($_POST['submit'])) {
+
+    $no_file = $_GET['no_file'];
+    if (insert($_POST, $no_file) > 0) {
+        echo "
+        <script>
+            setTimeout(function () {
+                Swal.fire({
+                    title: 'Berhasil',
+                    text: 'Berhasil Tambah Struktur',
+                    icon: 'success',
+                    timer: '6200',
+                    showConfirmButton: false
+                });
+            },10);
+            window.setTimeout(function(){
+                window.location.replace('struktur.php');
+            },3000);
+        </script>
+        ";
+    } else {
+        echo "
+        <script>
+            setTimeout(function () {
+                Swal.fire({
+                    title: 'INFO',
+                    text: 'Gagal Tambah Struktur',
+                    icon: 'warning',
+                    timer: '6200',
+                    showConfirmButton: false
+                });
+            },10);
+            window.setTimeout(function(){
+                window.location.replace('tambah_struktur.php');
+            },3000);
+        </script>
+        ";
+    }
+}
+
 ?>
 
 <!-- MAIN CONTENT-->
@@ -15,7 +55,8 @@ require '../function/function.php';
                     <strong>Data Tambah</strong> Struktur
                 </div>
                 <div class="card-body card-block">
-                    <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                    <form action="?no_file=3" method="post" enctype="multipart/form-data" class="form-horizontal">
+
                         <!-- Nik -->
                         <div class="row form-group">
                             <div class="col col-md-3">
@@ -30,10 +71,10 @@ require '../function/function.php';
                         <!-- Nama Guru/Staf -->
                         <div class="row form-group">
                             <div class="col col-md-3">
-                                <label for="team" class=" form-control-label">Nama</label>
+                                <label for="nama" class=" form-control-label">Nama</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="text" id="team" name="team" placeholder="Masukkan Nama " class="form-control" required>
+                                <input type="text" id="nama" name="nama" placeholder="Masukkan Nama " class="form-control" required>
                                 <small class="help-block form-text">Mohon masukkan Nama dgn benar</small>
                             </div>
                         </div>
@@ -71,14 +112,14 @@ require '../function/function.php';
                                 <label for="tanggal_lahir" class=" form-control-label">Tanggal Lahir</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="date" id="tanggal_lahir" name="tanggal_lahir" class="form-control">
+                                <input type="date" id="tanggal_lahir" name="tanggal_lahir" class="form-control" required>
                             </div>
                         </div>
 
                         <!-- No.Telepon -->
                         <div class="row form-group">
                             <div class="col col-md-3">
-                                <label for="telepon" class=" form-control-label">Telepon</label>
+                                <label for="telepon" class=" form-control-label">Telepon/Wa</label>
                             </div>
                             <div class="col-12 col-md-9">
                                 <input type="text" id="telepon" name="telepon" placeholder="Masukkan Telepon" class="form-control" required>
@@ -88,10 +129,10 @@ require '../function/function.php';
                         <!-- Jabatan -->
                         <div class="row form-group">
                             <div class="col col-md-3">
-                                <label for="posisi" class=" form-control-label">Jabatan</label>
+                                <label for="jabatan" class=" form-control-label">Jabatan</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <select name="posisi" id="posisi" class="form-control-sm form-control">
+                                <select name="jabatan" id="jabatan" class="form-control-sm form-control" required>
                                     <option value="">Pilih Jabatan</option>
                                     <option value="kepala yayasan">Kepala Yayasan</option>
                                     <option value="guru">Guru</option>
@@ -109,14 +150,15 @@ require '../function/function.php';
                                 <input type="file" id="gambar" name="gambar" class="form-control" required>
                             </div>
                         </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary btn-sm" name="submit">
+                                <i class="fa fa-plus-circle"></i> Submit
+                            </button>
+                        </div>
 
                     </form>
                 </div>
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-primary btn-sm" name="submit">
-                        <i class="fa fa-plus-circle"></i> Submit
-                    </button>
-                </div>
+
             </div>
 
         </div>
