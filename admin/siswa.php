@@ -42,33 +42,33 @@ $query_siswa = tampil("SELECT * FROM siswa");
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
-                            <?php 
-                                $n= 1;
-                                while($row = mysqli_fetch_assoc($query_siswa)):
-                                ?>
-                            <tbody>
-                                <tr>
-                                    <td><?= $n++; ?></td>
-                                    <td><?= $row['nis']; ?></td>
-                                    <td><?= $row['nama_siswa']; ?></td>
-                                    <td><?= $row['jenis_kelamin']; ?></td>
-                                    <td><?= $row['status']; ?></td>
-                                    <td><?= $row['tgl_masuk']; ?></td>
-                                    <td><?= $row['tempat_lahir']; ?></td>
-                                    <td><?= $row['tgl_lahir']; ?></td>
-                                    <td><?= $row['kelas']; ?></td>
-                                    <td>
-                                        <div class="table-data-feature">
-                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                <a href="edit_siswa.php?id=<?= $row['id_siswa']; ?>"><i class="zmdi zmdi-edit"></i></a>
-                                            </button>
-                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                <a href="hapus_siswa.php?id=<?= $row['id_siswa']; ?>&no_file=2"><i class="zmdi zmdi-delete"></i></a>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
+                            <?php
+                            $n = 1;
+                            while ($row = mysqli_fetch_assoc($query_siswa)) :
+                            ?>
+                                <tbody>
+                                    <tr>
+                                        <td><?= $n++; ?></td>
+                                        <td><?= $row['nis']; ?></td>
+                                        <td><?= $row['nama_siswa']; ?></td>
+                                        <td><?= $row['jenis_kelamin']; ?></td>
+                                        <td><?= $row['status']; ?></td>
+                                        <td><?= $row['tgl_masuk']; ?></td>
+                                        <td><?= $row['tempat_lahir']; ?></td>
+                                        <td><?= $row['tgl_lahir']; ?></td>
+                                        <td><?= $row['kelas']; ?></td>
+                                        <td>
+                                            <div class="table-data-feature">
+                                                <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                    <a href="edit_siswa.php?id=<?= $row['id_siswa']; ?>"><i class="zmdi zmdi-edit"></i></a>
+                                                </button>
+                                                <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                    <a href="hapus_siswa.php?id=<?= $row['id_siswa']; ?>&no_file=2" onclick="return confirm('Yakin Hapus Siswa ini?')"><i class="zmdi zmdi-delete"></i></a>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
                             <?php endwhile; ?>
                         </table>
                     </div>

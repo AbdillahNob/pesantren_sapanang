@@ -342,6 +342,8 @@ function hapus($id, $no_file)
 
     if ($no_file == 1) {
         $query = "DELETE FROM user WHERE id_user = $id";
+    } else if($no_file == 2){
+        $query = "DELETE FROM siswa WHERE id_siswa = $id";
     }
     mysqli_query($con, $query);
 

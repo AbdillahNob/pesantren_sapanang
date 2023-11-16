@@ -63,7 +63,7 @@ $query_user = tampil("SELECT * FROM user");
                                                 <a href="edit_user.php?id=<?= $row['id_user']; ?>"><i class="zmdi zmdi-edit"></i></a>
                                             </button>
                                             <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                <a href="hapus_user.php?id=<?= $row['id_user']; ?>&no_file=1" onclick="return confirm('Yakin Hapus User ?')"><i class="zmdi zmdi-delete"></i></a>
+                                                <a href="hapus_user.php?id=<?= $row['id_user']; ?>&no_file=1" onclick="return confirm('Yakin Hapus User ini ?')"><i class="zmdi zmdi-delete"></i></a>
                                             </button>
                                         </div>
                                     </td>
