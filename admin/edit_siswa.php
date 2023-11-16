@@ -91,9 +91,9 @@ if(isset($_POST['submit'])){
                         <div class="row form-group">
                             <div class="col col-md-3">
                                 <label class=" form-control-label">Jenis Kelamin :
-                                    <b><a class="upper"><?= $row['jenis_kelamin']; ?></a></b>
+                                    <a class="upper"><?= $row['jenis_kelamin']; ?></a>
                                 </label>
-                                <input type="hidden" name="jenis_kelamin" value="<?= $row['jenis_kelamin']; ?>" required>
+                                <input type="hidden" name="jenis_kelamin" value="<?= $row['jenis_kelamin']; ?>" >
                             </div>
                             <div class="col col-md-9">
                                 <div class="form-check-inline form-check">

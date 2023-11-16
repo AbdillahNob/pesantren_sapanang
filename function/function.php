@@ -169,19 +169,19 @@ function insert($data, $no_file)
 
         $result = mysqli_query($con, "SELECT * FROM struktur WHERE jabatan = '$jabatan'");
         //Validasi Kepala yayasan hanya 1
-        if(mysqli_num_rows($result) > 0 && $jabatan == "kepala yayasan"){
+        if (mysqli_num_rows($result) > 0 && $jabatan == "kepala yayasan") {
             echo "
                 <script>
                     alert('Maaf Kepala Yayasan hanya 1 orang !');
                 </script>
                 ";
             return false;
-        }else{
+        } else {
 
-             // fungsi upload tdk diluar krna apabila ggl tambah tpi input gmbr benar maka gmbr ttp trkrm ke server
+            // fungsi upload tdk diluar krna apabila ggl tambah tpi input gmbr benar maka gmbr ttp trkrm ke server
             $gambar = upload($no_foto);
             // Bila foto tdk memenuhi syarat
-            if(!$gambar){
+            if (!$gambar) {
                 return false;
             }
             $query = "INSERT INTO struktur (nik, nama, jenis_kelamin, tempat_lahir, tgl_lahir, no_telepon, jabatan, gambar) VALUES 
@@ -195,6 +195,8 @@ function insert($data, $no_file)
                                             '$gambar')
                                             ";
         }
+    } else{
+        return false;
     }
 
     mysqli_query($con, $query);
@@ -236,8 +238,10 @@ function upload($no_foto)
     // 4. Informasi
     if ($no_foto == 1) {
         $fileDir = "../admin/images/user/";
-    } else if($no_foto == 3){
+    } else if ($no_foto == 3) {
         $fileDir = "../images/struktur/";
+    } else{
+        return false;
     }
 
     $namaFotoBaru = uniqid();
@@ -335,7 +339,9 @@ function update($data, $no_file)
                         gambar = '$gambar'
                         WHERE id_user = $id
                         ";
+
     } else if ($no_file == 2) {
+        $id = $data['id_siswa'];
         $nis = $data['nis'];
         $nama = $data['nama'];
         $jenis_kelamin = $data['jenis_kelamin'];
@@ -357,16 +363,7 @@ function update($data, $no_file)
             return false;
         }
 
-        // Validasi apakah jenis kelamin ada/tdk
-        if (!$jenis_kelamin) {
-            echo "
-                <script>
-                    alert('Anda tidak isi Jenis Kelamin Anda !');
-                </script>
-                ";
-            return false;
-        }
-        // Validasi Apakah ad Status baru/tdk, datanya berubah/hilang bila name-nya menggunakan name/data sebelumnya.
+        // Validasi jika status tdk diperbarui dan msh menggunakan name sebelumnya maka datanya akan hilang ( fitur dropdown )
         if (!$status_baru) {
             $status = $data['status_lama'];
         } else {
@@ -382,7 +379,64 @@ function update($data, $no_file)
                     tempat_lahir = '$tempat_lahir',
                     tgl_lahir = '$tgl_lahir',
                     kelas = '$kelas' 
+                    WHERE id_siswa = $id
                     ";
+
+    } else if ($no_file == 3) {
+        $id = $data['id_struktur'];
+        $nik = $data['nik'];
+        $nama = $data['nama'];
+        $jenis_kelamin = $data['jenis_kelamin'];
+        $tempat_lahir = $data['tempat_lahir'];
+        $tgl_lahir = $data['tanggal_lahir'];
+        $telepon = $data['telepon'];
+        $jabatanBaru = $data['jabatanBaru'];
+
+        // Validasi jumlah digit nis yg di input
+        $j_nik = strlen($nik);
+        if ($j_nik != 16) {
+            echo "
+                <script>
+                    alert('Maaf Nik anda harus 16 digit');
+                </script>
+                ";
+            return false;
+        }
+
+        // Validasi jika jabatan tdk diperbarui dan msh menggunakan name sebelumnya maka datanya akan hilang ( fitur dropdown )
+        if(!$jabatanBaru){
+            $jabatan = $data['jabatan_lama'];
+        }else{
+            $jabatan = $jabatanBaru;
+        }
+        
+
+        $result = mysqli_query($con, "SELECT * FROM struktur WHERE jabatan = '$jabatan'");
+        //Validasi Kepala yayasan hanya 1
+        if (mysqli_num_rows($result) > 0 && $jabatan == "kepala yayasan") {
+            echo "
+                <script>
+                    alert('Maaf Kepala Yayasan hanya 1 orang !');
+                </script>
+                ";
+            return false;
+        } else {
+
+            $query = "UPDATE struktur SET   
+                                        nik = '$nik',
+                                        nama = '$nama',
+                                        jenis_kelamin = '$jenis_kelamin',
+                                        tempat_lahir = '$tempat_lahir',
+                                        tgl_lahir = '$tgl_lahir',
+                                        no_telepon = '$telepon',
+                                        jabatan = '$jabatan',
+                                        gambar = '$gambar' 
+                                        WHERE id_struktur = $id
+                                        ";
+        }
+    }
+    else{
+        return false;
     }
 
     mysqli_query($con, $query);
@@ -404,6 +458,8 @@ function hapus($id, $no_file)
         $query = "DELETE FROM user WHERE id_user = $id";
     } else if ($no_file == 2) {
         $query = "DELETE FROM siswa WHERE id_siswa = $id";
+    }else{
+        return false;
     }
     mysqli_query($con, $query);
 

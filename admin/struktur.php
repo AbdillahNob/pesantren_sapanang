@@ -2,6 +2,8 @@
 require '../function/function.php';
 require 'template/header.php';
 
+$result = tampil("SELECT * FROM struktur");
+
 ?>
 <!-- MAIN CONTENT-->
 <div class="main-content">
@@ -28,6 +30,7 @@ require 'template/header.php';
                         <table class="table table-borderless table-data3">
                             <thead>
                                 <tr>
+                                    <th>No</th>
                                     <th>Nik</th>
                                     <th>Nama</th>
                                     <th>Jenis kelamin</th>
@@ -35,24 +38,31 @@ require 'template/header.php';
                                     <th>Tanggal lahir</th>
                                     <th>No telepon</th>
                                     <th>Jabatan</th>
-                                    <th>Gambar</th>
+                                    <th>Foto</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
+                            <?php 
+                            $n = 1;
+                            while($row = mysqli_fetch_assoc($result)):
+                            ?>
                             <tbody>
                                 <tr>
-                                    <td>2018-09-29 05:57</td>
-                                    <td>Mobile</td>
-                                    <td>iPhone X 64Gb Grey</td>
-                                    <td class="process">Processed</td>
-                                    <td>$999.00</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <th><?= $n++; ?></th>
+                                    <td><?= $row['nik']; ?></td>
+                                    <td><?= $row['nama']; ?></td>
+                                    <td><a class="upper"><?= $row['jenis_kelamin'];  ?></a></td>
+                                    <td><?= $row['tempat_lahir']; ?></td>
+                                    <td><?= $row['tgl_lahir']; ?></td>
+                                    <td><?= $row['no_telepon']; ?></td>
+                                    <td><a class="upper"><?= $row['jabatan']; ?></a></td>
+                                    <td>
+                                        <img src="../images/struktur/<?= $row['gambar']; ?>">
+                                    </td>
                                     <td>
                                         <div class="table-data-feature">
                                             <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                <a href="edit_struktur.php"><i class="zmdi zmdi-edit"></i></a>
+                                                <a href="edit_struktur.php?id=<?= $row['id_struktur']; ?>"><i class="zmdi zmdi-edit"></i></a>
                                             </button>
                                             <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
                                                 <i class="zmdi zmdi-delete"></i>
@@ -60,28 +70,9 @@ require 'template/header.php';
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>2018-09-22 00:43</td>
-                                    <td>Computer</td>
-                                    <td>Macbook Pro Retina 2017</td>
-                                    <td class="process">Processed</td>
-                                    <td>$10.00</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>
-                                        <div class="table-data-feature">
-                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                <a href="edit_struktur.php"><i class="zmdi zmdi-edit"></i></a>
-                                            </button>
-                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                <i class="zmdi zmdi-delete"></i>
-                                            </button>
-
-                                        </div>
-                                    </td>
-                                </tr>
+                           
                             </tbody>
+                            <?php endwhile; ?>
                         </table>
                     </div>
                     <!-- END DATA TABLE-->
