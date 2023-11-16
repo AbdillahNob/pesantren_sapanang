@@ -73,7 +73,7 @@ if (isset($_POST['submit'])) {
                                     <label for="nama" class=" form-control-label">Nama User</label>
                                 </div>
                                 <div class="col-12 col-md-9">
-                                    <input type="text" id="nama" name="nama" placeholder="Masukkan Nama" class="form-control" value="<?= $row['nama']; ?>">
+                                    <input type="text" id="nama" name="nama" class="form-control" value="<?= $row['nama']; ?>" required>
                                     <small class="help-block form-text">Mohon masukkan Nama dgn benar</small>
                                 </div>
                             </div>
