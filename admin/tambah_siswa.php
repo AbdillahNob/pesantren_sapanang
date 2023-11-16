@@ -2,6 +2,46 @@
 require '../function/function.php';
 require 'template/header_desktop.php';
 
+if(isset($_POST['submit'])){
+    $no_file = $_GET['no_file'];
+
+    if(insert($_POST,$no_file)){
+        echo "
+            <script>
+                setTimeout(function () {
+                    Swal.fire({
+                        title: 'Berhasil',
+                        text: 'Berhasil Tambah Siswa',
+                        icon: 'success',
+                        timer: '6200',
+                        showConfirmButton: false
+                    });
+                },10);
+                window.setTimeout(function(){
+                    window.location.replace('siswa.php');
+                },3000);
+            </script>
+    ";
+    }else{
+        echo "
+            <script>
+                setTimeout(function () {
+                    Swal.fire({
+                        title: 'INFO',
+                        text: 'Gagal Tambah Siswa',
+                        icon: 'warning',
+                        timer: '6200',
+                        showConfirmButton: false
+                    });
+                },10);
+                window.setTimeout(function(){
+                    window.location.replace('siswa.php');
+                },3000);
+            </script>
+        ";
+    }
+}
+
 ?>
 
 <!-- MAIN CONTENT-->
@@ -15,7 +55,7 @@ require 'template/header_desktop.php';
                     <strong>Data Tambah</strong> Siswa
                 </div>
                 <div class="card-body card-block">
-                    <form action="" method="post" class="form-horizontal">
+                    <form action="?no_file=2" method="post" class="form-horizontal" enctype="multipart/form-data">
                         <!-- Nis -->
                         <div class="row form-group">
                             <div class="col col-md-3">

@@ -96,6 +96,8 @@ function insert($data, $no_file)
             ";
             return false;
         }
+    } else if($no_file == 2){
+        
     }
 
     mysqli_query($con, $query);
