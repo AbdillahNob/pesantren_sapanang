@@ -413,7 +413,7 @@ function update($data, $no_file)
 
         $result = mysqli_query($con, "SELECT * FROM struktur WHERE jabatan = '$jabatan'");
         //Validasi Kepala yayasan hanya 1
-        if (mysqli_num_rows($result) > 0 && $jabatan == "kepala yayasan") {
+        if (mysqli_num_rows($result) > 1 && $jabatan == "kepala yayasan") {
             echo "
                 <script>
                     alert('Maaf Kepala Yayasan hanya 1 orang !');
@@ -458,6 +458,8 @@ function hapus($id, $no_file)
         $query = "DELETE FROM user WHERE id_user = $id";
     } else if ($no_file == 2) {
         $query = "DELETE FROM siswa WHERE id_siswa = $id";
+    }else if($no_file == 3){
+        $query = "DELETE FROM struktur WHERE id_struktur = $id";
     }else{
         return false;
     }

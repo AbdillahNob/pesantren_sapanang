@@ -142,18 +142,14 @@ if (isset($_POST['submit'])) {
                                 <div class="col col-md-3">
                                     <label for="jabatanBaru" class=" form-control-label">Jabatan : <?= $row['jabatan']; ?></label>
                                 </div>
-                                <?php
-                                if ($row['jabatan'] != "kepala yayasan") :
-                                ?>
-                                    <div class="col-12 col-md-9">
-                                        <select name="jabatanBaru" id="jabatanBaru" class="form-control-sm form-control">
-                                            <option value="">Pilih Jabatan</option>
-                                            <option value="kepala yayasan">Kepala Yayasan</option>
-                                            <option value="guru">Guru</option>
-                                            <option value="staf">Staf</option>
-                                        </select>
-                                    </div>
-                                <?php endif; ?>
+                                <div class="col-12 col-md-9">
+                                    <select name="jabatanBaru" id="jabatanBaru" class="form-control-sm form-control">
+                                        <option value="">Pilih Jabatan</option>
+                                        <option value="kepala yayasan">Kepala Yayasan</option>
+                                        <option value="guru">Guru</option>
+                                        <option value="staf">Staf</option>
+                                    </select>
+                                </div>
                             </div>
 
                             <!-- Gambar -->

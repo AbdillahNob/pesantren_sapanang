@@ -48,7 +48,7 @@ $result = tampil("SELECT * FROM struktur");
                             ?>
                             <tbody>
                                 <tr>
-                                    <th><?= $n++; ?></th>
+                                    <th><p align="center"><?= $n++; ?></p></th>
                                     <td><?= $row['nik']; ?></td>
                                     <td><?= $row['nama']; ?></td>
                                     <td><a class="upper"><?= $row['jenis_kelamin'];  ?></a></td>
@@ -62,10 +62,14 @@ $result = tampil("SELECT * FROM struktur");
                                     <td>
                                         <div class="table-data-feature">
                                             <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                <a href="edit_struktur.php?id=<?= $row['id_struktur']; ?>"><i class="zmdi zmdi-edit"></i></a>
+                                                <a href="edit_struktur.php?id=<?= $row['id_struktur']; ?>">
+                                                    <i class="zmdi zmdi-edit"></i>
+                                                </a>
                                             </button>
                                             <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                <i class="zmdi zmdi-delete"></i>
+                                                <a href="hapus_struktur.php?id=<?= $row['id_struktur'] ?>&no_file=3" onclick="return confirm('Yakin Hapus Struktur ini ?')">
+                                                    <i class="zmdi zmdi-delete"></i>
+                                                </a>
                                             </button>
                                         </div>
                                     </td>
