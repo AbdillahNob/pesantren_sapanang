@@ -1,11 +1,11 @@
 <?php
 require '../function/function.php';
-require 'template/header_desktop.php';
+require 'template/header.php';
 
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
     $no_file = $_GET['no_file'];
 
-    if(insert($_POST,$no_file)){
+    if (insert($_POST, $no_file)) {
         echo "
             <script>
                 setTimeout(function () {
@@ -22,7 +22,7 @@ if(isset($_POST['submit'])){
                 },3000);
             </script>
     ";
-    }else{
+    } else {
         echo "
             <script>
                 setTimeout(function () {
@@ -35,7 +35,7 @@ if(isset($_POST['submit'])){
                     });
                 },10);
                 window.setTimeout(function(){
-                    window.location.replace('siswa.php');
+                    window.location.replace('tambah_siswa.php');
                 },3000);
             </script>
         ";
@@ -55,7 +55,7 @@ if(isset($_POST['submit'])){
                     <strong>Data Tambah</strong> Siswa
                 </div>
                 <div class="card-body card-block">
-                    <form action="?no_file=2" method="post" class="form-horizontal" enctype="multipart/form-data">
+                    <form action="?no_file=2" method="post" class="form-horizontal">
                         <!-- Nis -->
                         <div class="row form-group">
                             <div class="col col-md-3">
@@ -126,7 +126,7 @@ if(isset($_POST['submit'])){
                                 <label for="tempat_lahir" class=" form-control-label">Tempat lahir</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="text" id="tempat_lahir" name="tempat_lahir" placeholder="Masukkan Tempat lahir" class="form-control">
+                                <input type="text" id="tempat_lahir" name="tempat_lahir" placeholder="Masukkan Tempat lahir" class="form-control" required>
                             </div>
                         </div>
 
@@ -150,16 +150,16 @@ if(isset($_POST['submit'])){
                             </div>
                         </div>
 
-              
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary btn-sm" name="submit">
+                                <i class="fa fa-plus-circle"></i> Submit
+                            </button>
+                        </div>
+
                     </form>
                 </div>
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-primary btn-sm" name="submit">
-                        <i class="fa fa-plus-circle"></i> Submit
-                    </button>
-                </div>
             </div>
-            
+
         </div>
     </div>
 </div>

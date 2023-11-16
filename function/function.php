@@ -97,7 +97,46 @@ function insert($data, $no_file)
             return false;
         }
     } else if($no_file == 2){
-        
+        $nis = $data['nis'];
+        $nama = $data['nama'];
+        $jenis_kelamin = $data['jenis_kelamin'];
+        $status = $data['status'];
+        $tgl_masuk = $data['tanggal_masuk'];
+        $tempat_lahir = $data['tempat_lahir'];
+        $tgl_lahir = $data['tanggal_lahir'];
+        $kelas = $data['kelas'];
+
+        // Validasi apakah jenis kelamin ada/tdk
+        if(!$jenis_kelamin){
+            echo "
+                <script>
+                    alert('Anda tidak isi Jenis Kelamin Anda !');
+                </script>
+            ";
+            return false;
+        }
+
+        // Validasi jumlah digit nis yg di input
+        $j_nis = strlen($nis);
+        if($j_nis != 10){
+            echo "
+                <script>
+                    alert('Maaf Nis anda kurang dari 10 digit');
+                </script>
+            ";
+            return false;
+        }
+
+        $query = "INSERT INTO siswa (nis, nama_siswa, jenis_kelamin, status, tgl_masuk, tempat_lahir, tgl_lahir, kelas) VALUES
+                                    ('$nis',
+                                    '$nama',
+                                    '$jenis_kelamin',
+                                    '$status',
+                                    '$tgl_masuk',
+                                    '$tempat_lahir',
+                                    '$tgl_lahir',
+                                    '$kelas')
+                                    ";
     }
 
     mysqli_query($con, $query);

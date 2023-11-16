@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
                 });
             },10);
             window.setTimeout(function(){
-                window.location.replace('user.php');
+                window.location.replace('tambah_user.php');
             },3000);
         </script>
     ";

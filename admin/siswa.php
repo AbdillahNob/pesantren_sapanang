@@ -1,6 +1,9 @@
 <?php
 require '../function/function.php';
 require 'template/header.php';
+
+$query_siswa = tampil("SELECT * FROM siswa");
+
 ?>
 <!-- MAIN CONTENT-->
 <div class="main-content">
@@ -27,6 +30,7 @@ require 'template/header.php';
                         <table class="table table-borderless table-data3">
                             <thead>
                                 <tr>
+                                    <th>No</th>
                                     <th>Nis</th>
                                     <th>Nama</th>
                                     <th>Jenis kelamin</th>
@@ -38,48 +42,34 @@ require 'template/header.php';
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
+                            <?php 
+                                $n= 1;
+                                while($row = mysqli_fetch_assoc($query_siswa)):
+                                ?>
                             <tbody>
                                 <tr>
-                                    <td>2018-09-29 05:57</td>
-                                    <td>Mobile</td>
-                                    <td>iPhone X 64Gb Grey</td>
-                                    <td class="process">Processed</td>
-                                    <td>$999.00</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td><?= $n++; ?></td>
+                                    <td><?= $row['nis']; ?></td>
+                                    <td><?= $row['nama_siswa']; ?></td>
+                                    <td><?= $row['jenis_kelamin']; ?></td>
+                                    <td><?= $row['status']; ?></td>
+                                    <td><?= $row['tgl_masuk']; ?></td>
+                                    <td><?= $row['tempat_lahir']; ?></td>
+                                    <td><?= $row['tgl_lahir']; ?></td>
+                                    <td><?= $row['kelas']; ?></td>
                                     <td>
                                         <div class="table-data-feature">
                                             <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                                 <a href="edit_siswa.php"><i class="zmdi zmdi-edit"></i></a>
                                             </button>
                                             <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                <i class="zmdi zmdi-delete"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2018-09-22 00:43</td>
-                                    <td>Computer</td>
-                                    <td>Macbook Pro Retina 2017</td>
-                                    <td class="process">Processed</td>
-                                    <td>$10.00</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>
-                                        <div class="table-data-feature">
-                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                               <a href="edit_siswa.php"><i class="zmdi zmdi-edit"></i></a>
-                                            </button>
-                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                <i class="zmdi zmdi-delete"></i>
+                                                <a href="hapus_siswa.php"><i class="zmdi zmdi-delete"></i></a>
                                             </button>
                                         </div>
                                     </td>
                                 </tr>
                             </tbody>
+                            <?php endwhile; ?>
                         </table>
                     </div>
                     <!-- END DATA TABLE-->
