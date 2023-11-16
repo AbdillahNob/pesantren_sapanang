@@ -60,10 +60,10 @@ $query_siswa = tampil("SELECT * FROM siswa");
                                     <td>
                                         <div class="table-data-feature">
                                             <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                <a href="edit_siswa.php"><i class="zmdi zmdi-edit"></i></a>
+                                                <a href="edit_siswa.php?id=<?= $row['id_siswa']; ?>"><i class="zmdi zmdi-edit"></i></a>
                                             </button>
                                             <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                <a href="hapus_siswa.php"><i class="zmdi zmdi-delete"></i></a>
+                                                <a href="hapus_siswa.php?id=<?= $row['id_siswa']; ?>&no_file=2"><i class="zmdi zmdi-delete"></i></a>
                                             </button>
                                         </div>
                                     </td>

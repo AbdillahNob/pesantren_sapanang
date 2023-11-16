@@ -5,7 +5,7 @@ require 'template/header.php';
 if (isset($_POST['submit'])) {
     $no_file = $_GET['no_file'];
 
-    if (insert($_POST, $no_file)) {
+    if (insert($_POST, $no_file) > 0) {
         echo "
             <script>
                 setTimeout(function () {

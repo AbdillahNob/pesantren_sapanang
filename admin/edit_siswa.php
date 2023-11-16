@@ -1,6 +1,50 @@
 <?php
 require '../function/function.php';
 require 'template/header.php';
+
+$id = $_GET['id'];
+$query_siswa = tampil("SELECT * FROM siswa WHERE id_siswa=$id");
+
+if(isset($_POST['submit'])){
+    $no_file = $_POST['no_file'];
+    
+    if(update($_POST, $no_file) > 0){
+        echo "
+            <script>
+                setTimeout(function () {
+                    Swal.fire({
+                        title: 'Berhasil',
+                        text: 'Berhasil Edit Siswa',
+                        icon: 'success',
+                        timer: '6200',
+                        showConfirmButton: false
+                    });
+                },10);
+                window.setTimeout(function(){
+                    window.location.replace('siswa.php');
+                },3000);
+            </script>
+            ";
+    } else{
+        echo "
+            <script>
+                setTimeout(function () {
+                    Swal.fire({
+                        title: 'INFO',
+                        text: 'Tidak ada perubahan data Siswa',
+                        icon: 'warning',
+                        timer: '6200',
+                        showConfirmButton: false
+                    });
+                },10);
+                window.setTimeout(function(){
+                    window.location.replace('siswa.php');
+                },3000);
+            </script>
+        ";
+    }
+}
+
 ?>
 
 <!-- MAIN CONTENT-->
@@ -14,9 +58,12 @@ require 'template/header.php';
                     <strong>Data Edit</strong> Siswa
                 </div>
                 <div class="card-body card-block">
+                    <?php while($row = mysqli_fetch_assoc($query_siswa)): ?>
+
                     <form action="" method="post" class="form-horizontal">
-                        <input type="hidden" name="id_siswa" value="">
-                        <input type="hidden" name="no_file" value="">
+                        <input type="hidden" name="id_siswa" value="<?= $row['id_siswa']; ?>">
+                        <input type="hidden" name="no_file" value="2">
+                        <input type="hidden" name="status_lama" value="<?= $row['status']; ?>">
 
                         <!-- Nis -->
                         <div class="row form-group">
@@ -24,7 +71,7 @@ require 'template/header.php';
                                 <label for="nis" class=" form-control-label">Nis</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="text" id="nis" name="nis" placeholder="Nis" class="form-control" value="">
+                                <input type="text" id="nis" name="nis" placeholder="Nis" class="form-control" value="<?= $row['nis']; ?>" required>
                                 <small class="form-text text-muted">Nis tidak boleh sama</small>
                             </div>
                         </div>
@@ -35,7 +82,7 @@ require 'template/header.php';
                                 <label for="nama" class=" form-control-label">Nama Siswa</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="text" id="nama" name="nama" placeholder="Masukkan nama siswa" class="form-control" value="">
+                                <input type="text" id="nama" name="nama" placeholder="Masukkan nama siswa" class="form-control" value="<?= $row['nama_siswa']; ?>" required>
                                 <small class="help-block form-text">Mohon masukkan Nama dgn benar</small>
                             </div>
                         </div>
@@ -43,8 +90,10 @@ require 'template/header.php';
                         <!-- Jenis Kelamin -->
                         <div class="row form-group">
                             <div class="col col-md-3">
-                                <label class=" form-control-label">Jenis Kelamin : <?php ?></label>
-                                <input type="hidden" name="jenis_kelamin" value="">
+                                <label class=" form-control-label">Jenis Kelamin :
+                                    <b><a class="upper"><?= $row['jenis_kelamin']; ?></a></b>
+                                </label>
+                                <input type="hidden" name="jenis_kelamin" value="<?= $row['jenis_kelamin']; ?>" required>
                             </div>
                             <div class="col col-md-9">
                                 <div class="form-check-inline form-check">
@@ -61,11 +110,10 @@ require 'template/header.php';
                         <!-- Status -->
                         <div class="row form-group">
                             <div class="col col-md-3">
-                                <label for="status" class=" form-control-label">Status siswa : <?php ?></label>
-                                <input type="hidden" name="status" value="">
+                                <label for="statusBaru" class=" form-control-label">Status siswa : <?= $row['status']; ?></label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <select name="status" id="status" class="form-control-sm form-control">
+                                <select name="statusBaru" id="statusBaru" class="form-control-sm form-control">
                                     <option value="">Pilih Status</option>
                                     <option value="aktif">Aktif</option>
                                     <option value="dikeluarkan">Dikeluarkan</option>
@@ -77,11 +125,10 @@ require 'template/header.php';
                         <!-- Tgl masuk -->
                         <div class="row form-group">
                             <div class="col col-md-3">
-                                <label for="tanggal_masuk" class=" form-control-label">Tanggal masuk : <?php ?></label>
-                                <input type="hidden" name="tanggal_masuk" value="">
+                                <label for="tanggal_masuk" class=" form-control-label">Tanggal masuk : </label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="date" id="tanggal_masuk" name="tanggal_masuk" class="form-control">
+                                <input type="date" id="tanggal_masuk" name="tanggal_masuk" class="form-control" value="<?= $row['tgl_masuk']; ?>" required>
                             </div>
                         </div>
 
@@ -91,18 +138,17 @@ require 'template/header.php';
                                 <label for="tempat_lahir" class=" form-control-label">Tempat lahir</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="text" id="tempat_lahir" name="tempat_lahir" placeholder="Masukkan Tempat lahir" class="form-control" value="">
+                                <input type="text" id="tempat_lahir" name="tempat_lahir" placeholder="Masukkan Tempat lahir" class="form-control" value="<?= $row['tempat_lahir']; ?>" required>
                             </div>
                         </div>
 
                         <!-- Tgl Lahir -->
                         <div class="row form-group">
                             <div class="col col-md-3">
-                                <label for="tanggal_lahir" class=" form-control-label">Tanggal Lahir : <?php ?></label>
-                                <input type="hidden" name="tanggal_lahir" value="">
+                                <label for="tanggal_lahir" class=" form-control-label">Tanggal Lahir : </label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="date" id="tanggal_lahir" name="tanggal_lahir" class="form-control">
+                                <input type="date" id="tanggal_lahir" name="tanggal_lahir" class="form-control" value="<?= $row['tgl_lahir']; ?>" required>
                             </div>
                         </div>
 
@@ -112,20 +158,21 @@ require 'template/header.php';
                                 <label for="kelas" class=" form-control-label">kelas</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="text" id="kelas" name="kelas" placeholder="Masukkan kelas" class="form-control" value="">
+                                <input type="text" id="kelas" name="kelas" placeholder="Masukkan kelas" class="form-control" value="<?= $row['kelas']; ?>" required>
                             </div>
                         </div>
-
-              
+                        <?php endwhile; ?>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary btn-sm" name="submit">
+                                <i class="fa fa-plus-circle"></i> Submit
+                            </button>
+                        </div>
+                        
                     </form>
                 </div>
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-primary btn-sm" name="submit">
-                        <i class="fa fa-plus-circle"></i> Submit
-                    </button>
-                </div>
+
             </div>
-            
+
         </div>
     </div>
 </div>

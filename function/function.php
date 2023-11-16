@@ -96,7 +96,7 @@ function insert($data, $no_file)
             ";
             return false;
         }
-    } else if($no_file == 2){
+    } else if ($no_file == 2) {
         $nis = $data['nis'];
         $nama = $data['nama'];
         $jenis_kelamin = $data['jenis_kelamin'];
@@ -107,7 +107,7 @@ function insert($data, $no_file)
         $kelas = $data['kelas'];
 
         // Validasi apakah jenis kelamin ada/tdk
-        if(!$jenis_kelamin){
+        if (!$jenis_kelamin) {
             echo "
                 <script>
                     alert('Anda tidak isi Jenis Kelamin Anda !');
@@ -118,7 +118,7 @@ function insert($data, $no_file)
 
         // Validasi jumlah digit nis yg di input
         $j_nis = strlen($nis);
-        if($j_nis != 10){
+        if ($j_nis != 10) {
             echo "
                 <script>
                     alert('Maaf Nis anda kurang dari 10 digit');
@@ -194,6 +194,7 @@ function upload($no_foto)
 
 function update($data, $no_file)
 {
+    global $con;
 
     $no_foto = $no_file;
     if ($no_file != 2) {
@@ -219,7 +220,6 @@ function update($data, $no_file)
     // 4.Informasi
 
     if ($no_file == 1) {
-        global $con;
         $id = $data['id_user'];
         $nama = $data['nama'];
         $passwordLama = $data['passwordLama'];
@@ -275,6 +275,54 @@ function update($data, $no_file)
                         gambar = '$gambar'
                         WHERE id_user = $id
                         ";
+    } else if ($no_file == 2) {
+        $nis = $data['nis'];
+        $nama = $data['nama'];
+        $jenis_kelamin = $data['jenis_kelamin'];
+        // $status = $data['status'];
+        $status_baru = $data['statusBaru'];
+        $tgl_masuk = $data['tanggal_masuk'];
+        $tempat_lahir = $data['tempat_lahir'];
+        $tgl_lahir = $data['tanggal_lahir'];
+        $kelas = $data['kelas'];
+
+        // Validasi jumlah digit nis yg di input
+        $j_nis = strlen($nis);
+        if ($j_nis != 10) {
+            echo "                    
+                <script>
+                    alert('Maaf Nis anda kurang dari 10 digit');
+                </script>
+                ";
+            return false;
+        }
+
+        // Validasi apakah jenis kelamin ada/tdk
+        if (!$jenis_kelamin) {
+            echo "
+                <script>
+                    alert('Anda tidak isi Jenis Kelamin Anda !');
+                </script>
+                ";
+            return false;
+        }
+        // Validasi Apakah ad Status baru/tdk, datanya berubah/hilang bila name-nya menggunakan name/data sebelumnya.
+        if(!$status_baru){
+            $status = $data['status_lama'];
+        }else{
+            $status = $status_baru;
+        }
+
+        $query = "UPDATE siswa SET
+                    nis = '$nis',
+                    nama_siswa ='$nama',
+                    jenis_kelamin = '$jenis_kelamin',
+                    status = '$status',
+                    tgl_masuk = '$tgl_masuk',
+                    tempat_lahir = '$tempat_lahir',
+                    tgl_lahir = '$tgl_lahir',
+                    kelas = '$kelas' 
+                    ";
     }
 
     mysqli_query($con, $query);
@@ -292,7 +340,7 @@ function hapus($id, $no_file)
     // 3.struktur
     // 4.Informasi
 
-    if($no_file == 1 ){
+    if ($no_file == 1) {
         $query = "DELETE FROM user WHERE id_user = $id";
     }
     mysqli_query($con, $query);
