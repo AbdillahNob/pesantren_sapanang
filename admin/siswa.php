@@ -58,7 +58,7 @@ $query_siswa = tampil("SELECT * FROM siswa");
                                         <td class="<?php
                                             if ($row['status'] == 'aktif'){
                                                 echo 'process';
-                                            } else if($row['status'] == 'dikeluarkan'){
+                                            } else if($row['status'] == 'dikeluarkan' || $row['status'] == 'tamat'){
                                                 echo 'denied';
                                             } else{
                                                 echo '';

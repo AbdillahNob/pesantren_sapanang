@@ -1,6 +1,9 @@
 <?php
 require '../function/function.php';
 require 'template/header.php';
+
+$query_informasi = tampil("SELECT * FROM informasi");
+
 ?>
 <!-- MAIN CONTENT-->
 <div class="main-content">
@@ -23,10 +26,11 @@ require 'template/header.php';
             <div class="row m-t-30">
                 <div class="col-md-12">
                     <!-- DATA TABLE-->
-                    <div class="table-responsive m-b-40 text-nowrap">
+                    <div class="table-responsive m-b-40 ">
                         <table class="table table-borderless table-data3">
-                            <thead>
+                            <thead >
                                 <tr>
+                                    <th>No</th>
                                     <th>Judul</th>
                                     <th>Deskripsi</th>
                                     <th>Tanggal Informasi</th>
@@ -35,42 +39,34 @@ require 'template/header.php';
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
+                            <?php 
+                                $n = 1;
+                                while($row = mysqli_fetch_assoc($query_informasi)):
+                            ?>
                             <tbody>
                                 <tr>
-                                    <td>2018-09-29 05:57</td>
-                                    <td>Mobile</td>
-                                    <td>iPhone X 64Gb Grey</td>
-                                    <td class="process">Processed</td>
-                                    <td>$999.00</td>
+                                    <td><p align="center"><?= $n++; ?></p></td>
+                                    <td><?= $row['judul']; ?></td>
+                                    <td><?= $row['deskripsi']; ?></td>
+                                    <td><?= $row['tgl_informasi']; ?></td>
+                                    <td class="process"><?= $row['penulis']; ?></td>
                                     <td>
-                                        <div class="table-data-feature">
-                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                <a href="edit_informasi.php"><i class="zmdi zmdi-edit"></i></a>
-                                            </button>
-                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                <i class="zmdi zmdi-delete"></i>
-                                            </button>
-                                        </div>
+                                        <img src="../images/informasi/<?= $row['gambar']; ?>">
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td>2018-09-22 00:43</td>
-                                    <td>Computer</td>
-                                    <td>Macbook Pro Retina 2017</td>
-                                    <td class="process">Processed</td>
-                                    <td>$10.00</td>
                                     <td>
                                         <div class="table-data-feature">
                                             <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                <a href="edit_informasi.php"><i class="zmdi zmdi-edit"></i></a>
+                                                <a href="edit_informasi.php?id=<?= $row['id_informasi']; ?>"><i class="zmdi zmdi-edit"></i></a>
                                             </button>
                                             <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                <i class="zmdi zmdi-delete"></i>
+                                                <a href="hapus_informasi.php?id=<?= $row['id_informasi']; ?>&no_file=4"><i class="zmdi zmdi-delete"></i></a>
                                             </button>
                                         </div>
                                     </td>
                                 </tr>
                             </tbody>
+                            <?php endwhile; ?>
+
                         </table>
                     </div>
                     <!-- END DATA TABLE-->

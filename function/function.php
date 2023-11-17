@@ -178,9 +178,7 @@ function insert($data, $no_file)
             return false;
         } else {
 
-            // fungsi upload tdk diluar krna apabila ggl tambah tpi input gmbr benar maka gmbr ttp trkrm ke server
             $gambar = upload($no_foto);
-            // Bila foto tdk memenuhi syarat
             if (!$gambar) {
                 return false;
             }
@@ -195,6 +193,24 @@ function insert($data, $no_file)
                                             '$gambar')
                                             ";
         }
+    }else if($no_file == 4){
+        $judul = $data['judul'];
+        $deskripsi = $data['deskripsi'];
+        $tanggal_informasi = $data['tanggal_informasi'];
+        $penulis = $data['penulis'];
+
+         $gambar = upload($no_foto);
+         if (!$gambar) {
+             return false;
+         }
+         $query = "INSERT INTO informasi (judul, deskripsi, tgl_informasi, penulis, gambar) VALUES
+                                        ('$judul',
+                                        '$deskripsi',
+                                        '$tanggal_informasi',
+                                        '$penulis',
+                                        '$gambar')
+                                        ";
+
     } else{
         return false;
     }
@@ -233,13 +249,15 @@ function upload($no_foto)
     }
     // Notes
     // 1. User
-    // 2. Siswa
     // 3. Struktur
     // 4. Informasi
     if ($no_foto == 1) {
         $fileDir = "../admin/images/user/";
     } else if ($no_foto == 3) {
         $fileDir = "../images/struktur/";
+    } else if($no_foto == 4){
+        $fileDir = "../images/informasi/";
+
     } else{
         return false;
     }

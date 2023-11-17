@@ -2,6 +2,46 @@
 require '../function/function.php';
 require 'template/header.php';
 
+if (isset($_POST['submit'])) {
+    $no_file = $_GET['no_file'];
+
+    if (insert($_POST, $no_file)) {
+        echo "
+            <script>
+                setTimeout(function () {
+                    Swal.fire({
+                        title: 'Berhasil',
+                        text: 'Berhasil Tambah Informasi',
+                        icon: 'success',
+                        timer: '6200',
+                        showConfirmButton: false
+                    });
+                },10);
+                window.setTimeout(function(){
+                    window.location.replace('informasi.php');
+                },3000);
+            </script>
+        ";
+    } else {
+        echo "
+            <script>
+                setTimeout(function () {
+                    Swal.fire({
+                        title: 'INFO',
+                        text: 'Gagal Tambah Informasi',
+                        icon: 'warning',
+                        timer: '6200',
+                        showConfirmButton: false
+                    });
+                },10);
+                window.setTimeout(function(){
+                    window.location.replace('tambah_informasi.php');
+                },3000);
+            </script>
+        ";
+    }
+}
+
 ?>
 
 <!-- MAIN CONTENT-->
@@ -15,7 +55,7 @@ require 'template/header.php';
                     <strong>Data Tambah</strong> Informasi
                 </div>
                 <div class="card-body card-block">
-                    <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                    <form action="?no_file=4" method="post" enctype="multipart/form-data" class="form-horizontal">
                         <!-- Judul -->
                         <div class="row form-group">
                             <div class="col col-md-3">
@@ -65,15 +105,15 @@ require 'template/header.php';
                                 <input type="file" id="gambar" name="gambar" class="form-control" required>
                             </div>
                         </div>
-
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary btn-sm" name="submit">
+                                <i class="fa fa-plus-circle"></i> Submit
+                            </button>
+                        </div>
 
                     </form>
                 </div>
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-primary btn-sm" name="submit">
-                        <i class="fa fa-plus-circle"></i> Submit
-                    </button>
-                </div>
+
             </div>
 
         </div>
