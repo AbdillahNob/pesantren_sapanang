@@ -4,6 +4,10 @@ require '../function/function.php';
 
 
 $query_user = tampil("SELECT * FROM user");
+$query_siswa = tampil("SELECT * FROM siswa");
+$query_struktur = tampil("SELECT * FROM struktur");
+$query_informasi = tampil("SELECT * FROM informasi");
+
 ?>
 
 
@@ -63,7 +67,7 @@ $query_user = tampil("SELECT * FROM user");
                         <i class="zmdi zmdi-accounts"></i>
                     </div>
                     <div class="text">
-                        <h2>388,688</h2>
+                        <h2><?= mysqli_num_rows($query_siswa); ?></h2>
                         <span>Siswa</span>
                     </div>
                 </div>
@@ -81,8 +85,8 @@ $query_user = tampil("SELECT * FROM user");
                         <i class="zmdi zmdi-account-box"></i>
                     </div>
                     <div class="text">
-                        <h2>1,086</h2>
-                        <span>Guru</span>
+                        <h2><?= mysqli_num_rows($query_struktur); ?></h2>
+                        <span>Struktur</span>
                     </div>
                 </div>
                 <div class="overview-chart">
@@ -99,7 +103,7 @@ $query_user = tampil("SELECT * FROM user");
                         <i class="zmdi zmdi-info"></i>
                     </div>
                     <div class="text">
-                        <h2>$1,060,386</h2>
+                        <h2><?= mysqli_num_rows($query_informasi); ?></h2>
                         <span>Informasi</span>
                     </div>
                 </div>

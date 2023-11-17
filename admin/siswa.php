@@ -20,6 +20,15 @@ $query_siswa = tampil("SELECT * FROM siswa");
                         </button>
                     </a>
                 </div>
+                <!-- Form Search -->
+                <form class="form-header" action="" method="POST">
+                    <input class="au-input au-input--xl" type="text" name="search" placeholder="Cari data Siswa..." />
+                    <button class="au-btn--submit" type="submit">
+                        <i class="zmdi zmdi-search"></i>
+                    </button>
+                    <button type="submit" class="btn btn-info " name="search">Refresh<a href="clean_search.php"></a></button>
+                </form>
+
             </div>
             <!-- END DATA TABLE -->
 
@@ -56,14 +65,14 @@ $query_siswa = tampil("SELECT * FROM siswa");
                                         </td>
                                         <!-- Validasi warna tulisan status siswa -->
                                         <td class="<?php
-                                            if ($row['status'] == 'aktif'){
-                                                echo 'process';
-                                            } else if($row['status'] == 'dikeluarkan' || $row['status'] == 'tamat'){
-                                                echo 'denied';
-                                            } else{
-                                                echo '';
-                                            }
-                                            ?>">
+                                                    if ($row['status'] == 'aktif') {
+                                                        echo 'process';
+                                                    } else if ($row['status'] == 'dikeluarkan' || $row['status'] == 'tamat') {
+                                                        echo 'denied';
+                                                    } else {
+                                                        echo '';
+                                                    }
+                                                    ?>">
                                             <a class="upper"><?= $row['status']; ?></a>
                                         </td>
                                         <td><?= $row['tgl_masuk']; ?></td>
