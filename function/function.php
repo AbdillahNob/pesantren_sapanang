@@ -452,6 +452,21 @@ function update($data, $no_file)
                                         WHERE id_struktur = $id
                                         ";
         }
+    } else if($no_file == 4){
+        $id = $data['id_informasi'];
+        $judul = $data['judul'];
+        $deskripsi = $data['deskripsi'];
+        $tgl_informasi = $data['tanggal_informasi'];
+        $penulis = $data['penulis'];
+
+        $query = "UPDATE informasi SET
+                                    judul = '$judul',
+                                    deskripsi = '$deskripsi',
+                                    tgl_informasi = '$tgl_informasi',
+                                    penulis = '$penulis',
+                                    gambar = '$gambar'
+                                    WHERE id_informasi = $id;
+                                    ";
     }
     else{
         return false;
@@ -478,6 +493,9 @@ function hapus($id, $no_file)
         $query = "DELETE FROM siswa WHERE id_siswa = $id";
     }else if($no_file == 3){
         $query = "DELETE FROM struktur WHERE id_struktur = $id";
+    } else if($no_file == 4){
+        $query = "DELETE FROM informasi WHERE id_informasi = $id";
+
     }else{
         return false;
     }

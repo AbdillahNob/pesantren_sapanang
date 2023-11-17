@@ -59,7 +59,7 @@ $query_informasi = tampil("SELECT * FROM informasi");
                                                 <a href="edit_informasi.php?id=<?= $row['id_informasi']; ?>"><i class="zmdi zmdi-edit"></i></a>
                                             </button>
                                             <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                <a href="hapus_informasi.php?id=<?= $row['id_informasi']; ?>&no_file=4"><i class="zmdi zmdi-delete"></i></a>
+                                                <a href="hapus_informasi.php?id=<?= $row['id_informasi']; ?>&no_file=4" onclick="return confirm('Yakin Hapus Informasi ini ?')"><i class="zmdi zmdi-delete"></i></a>
                                             </button>
                                         </div>
                                     </td>
