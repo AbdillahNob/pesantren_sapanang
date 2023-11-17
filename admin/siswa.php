@@ -51,8 +51,21 @@ $query_siswa = tampil("SELECT * FROM siswa");
                                         <td><?= $n++; ?></td>
                                         <td><?= $row['nis']; ?></td>
                                         <td><?= $row['nama_siswa']; ?></td>
-                                        <td><?= $row['jenis_kelamin']; ?></td>
-                                        <td><?= $row['status']; ?></td>
+                                        <td>
+                                            <a class="upper"><?= $row['jenis_kelamin']; ?></a>
+                                        </td>
+                                        <!-- Validasi warna tulisan status siswa -->
+                                        <td class="<?php
+                                            if ($row['status'] == 'aktif'){
+                                                echo 'process';
+                                            } else if($row['status'] == 'dikeluarkan'){
+                                                echo 'denied';
+                                            } else{
+                                                echo '';
+                                            }
+                                            ?>">
+                                            <a class="upper"><?= $row['status']; ?></a>
+                                        </td>
                                         <td><?= $row['tgl_masuk']; ?></td>
                                         <td><?= $row['tempat_lahir']; ?></td>
                                         <td><?= $row['tgl_lahir']; ?></td>

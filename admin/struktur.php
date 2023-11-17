@@ -55,7 +55,9 @@ $result = tampil("SELECT * FROM struktur");
                                     <td><?= $row['tempat_lahir']; ?></td>
                                     <td><?= $row['tgl_lahir']; ?></td>
                                     <td><?= $row['no_telepon']; ?></td>
-                                    <td><a class="upper"><?= $row['jabatan']; ?></a></td>
+                                    <td class="process">
+                                        <a class="upper"><?= $row['jabatan']; ?></a>
+                                    </td>
                                     <td>
                                         <img src="../images/struktur/<?= $row['gambar']; ?>">
                                     </td>

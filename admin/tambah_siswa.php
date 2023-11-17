@@ -104,7 +104,8 @@ if (isset($_POST['submit'])) {
                                 <select name="status" id="status" class="form-control-sm form-control" required>
                                     <option value="">Pilih Status</option>
                                     <option value="aktif">Aktif</option>
-                                    <option value="dikeluarkan">Dikeluarkan</option>
+                                    <option value="dipindahkan">Di-Pindahkan</option>
+                                    <option value="dikeluarkan">Di-keluarkan</option>
                                     <option value="tamat">Tamat</option>
                                 </select>
                             </div>
