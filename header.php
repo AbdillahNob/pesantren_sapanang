@@ -7,6 +7,7 @@
                 window.location.replace('admin/super_dashboard.php');
             </script>
         ";
+        exit;
     }
 ?>
 

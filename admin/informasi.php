@@ -48,7 +48,7 @@ if ($halamanAktif < ($jumlahPage - 3)) {
                 <div class="col-md-12">
                     <!-- DATA TABLE-->
                     <div class="table-responsive m-b-40 ">
-                        <table class="table table-borderless table-data3">
+                        <table class="table table-borderless table-data1">
                             <thead>
                                 <tr>
                                     <th>No</th>

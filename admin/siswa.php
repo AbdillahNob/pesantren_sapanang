@@ -1,17 +1,37 @@
 <?php
-require '../function/function.php';
 require 'template/header.php';
+require '../function/function.php';
 
-$query_siswa = tampil("SELECT * FROM siswa");
+if(isset($_POST['search'])){
+    $cari = $_POST['cari'];
+    $_SESSION['cari'] = $cari;
 
-$dataPerhalaman = 5;
+    // Apabila sdh Search data dan masuk ke halaman/pagination lain siswa.php
+} else if(isset($_SESSION['cari'])){
+    $cari = $_SESSION['cari'];
+}else{
+    $cari = "";
+}
+$query = "SELECT * FROM siswa WHERE 
+                        nis LIKE '%$cari%' OR
+                        nama_siswa LIKE '%$cari%' OR
+                        kelas LIKE '%$cari%' 
+                        ";
+
+$query_siswa = tampil($query);
+
+$dataPerhalaman = 2;
 $totalData = mysqli_num_rows($query_siswa);
 $jumlahPage = ceil($totalData / $dataPerhalaman);
 
 $halamanAktif = (isset($_GET['page'])) ? $_GET['page'] : 1;
 $dataAwal = ($halamanAktif * $dataPerhalaman) - $dataPerhalaman;
 
-$viewData = tampil("SELECT * FROM siswa LIMIT $dataAwal, $dataPerhalaman");
+$viewData = tampil("SELECT * FROM siswa WHERE
+                                        nis LIKE '%$cari%' OR
+                                        nama_siswa LIKE '%$cari%' OR
+                                        kelas LIKE '%$cari%'
+                                        LIMIT $dataAwal, $dataPerhalaman");
 
 if($halamanAktif > 3){
     $startNu = $halamanAktif - 3;
@@ -44,11 +64,11 @@ if($halamanAktif < ($jumlahPage - 3)){
                 </div>
                 <!-- Form Search -->
                 <form class="form-header" action="" method="POST">
-                    <input class="au-input au-input--xl" type="text" name="search" placeholder="Cari data Siswa..." />
-                    <button class="au-btn--submit" type="submit">
+                    <input class="au-input au-input--xl" type="search" name="cari" placeholder="Cari data Siswa..." autofocus autocomplete="offs" />
+                    <button class="au-btn--submit" type="submit" name="search">
                         <i class="zmdi zmdi-search"></i>
                     </button>
-                    <button type="submit" class="btn btn-info " name="search">Refresh<a href="clean_search.php"></a></button>
+                    <button type="submit" class="btn btn-info" name="search">Reset<a href="clean_search.php"></a></button>
                 </form>
 
             </div>
