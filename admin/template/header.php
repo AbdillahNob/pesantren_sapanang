@@ -2,7 +2,7 @@
 session_start();
 // require '../../function/function.php';
 
-if (!isset($_SESSION['hal'])) {
+if (!isset($_SESSION['halaman'])) {
     echo "
         <script>
             window.location.replace('login.php');

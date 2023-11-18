@@ -1,7 +1,7 @@
 <?php 
     session_start();
 
-    if(isset($_SESSION['hal'])){
+    if(isset($_SESSION['halaman'])){
         echo"
             <script>
                 window.location.replace('admin/super_dashboard.php');

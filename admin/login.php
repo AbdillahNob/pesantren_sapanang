@@ -12,13 +12,13 @@ if(isset($_COOKIE['id']) && isset($_COOKIE['key'])){
     $validasi = mysqli_fetch_assoc($data);
 
     if($username == hash('sha256', $validasi['username'])){
-        $_SESSION['hal'] = true;
+        $_SESSION['halaman'] = true;
         $_SESSION['username'] = $validasi['username'];
     }
 }
 
 // Jgn Login klu belum Log-Out
-if(isset($_SESSION['hal'])){
+if(isset($_SESSION['halaman'])){
     echo "
         <script>
             window.location.replace('super_dashboard.php');
@@ -36,7 +36,7 @@ if(isset($_POST['login'])){
         $row = mysqli_fetch_assoc($result);
 
         if(password_verify($password, $row['password'])){
-                $_SESSION['hal'] = true;
+                $_SESSION['halaman'] = true;
                 $_SESSION['username'] = $row['username'];
 
             if(isset($_POST['remember'])){
