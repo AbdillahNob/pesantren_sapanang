@@ -4,6 +4,27 @@ require '../function/function.php';
 
 $query_user = tampil("SELECT * FROM user");
 
+$dataPerhalaman = 2;
+$totalData = mysqli_num_rows($query_user);
+$jumlahPage = ceil($totalData / $dataPerhalaman);
+
+$halamanAktif = (isset($_GET['page'])) ? $_GET['page'] : 1;
+$dataAwal = ($halamanAktif * $dataPerhalaman) - $dataPerhalaman;
+
+$viewData = tampil("SELECT * FROM user LIMIT $dataAwal, $dataPerhalaman");
+
+if ($halamanAktif > 3) {
+    $startNu = $halamanAktif - 3;
+} else {
+    $startNu = 1;
+}
+
+if ($halamanAktif < ($jumlahPage - 3)) {
+    $endNu = $halamanAktif + 3;
+} else {
+    $endNu = $jumlahPage;
+}
+
 ?>
 <!-- MAIN CONTENT-->
 <div class="main-content">
@@ -40,10 +61,10 @@ $query_user = tampil("SELECT * FROM user");
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $n = 1;
-                            while ($row = mysqli_fetch_assoc($query_user)) : ?>
+                            <?php $n = $dataAwal + 1;
+                            while ($row = mysqli_fetch_assoc($viewData)) : ?>
                                 <tr>
-                                    <td><?= $n++ ?>.</td>
+                                    <td align="center"><?= $n++ ?>.</td>
                                     <td>
                                         <img src="images/user/<?= $row['gambar'] ?>" height="200">
                                     </td>
@@ -73,6 +94,26 @@ $query_user = tampil("SELECT * FROM user");
                         </tbody>
                     </table>
                 </div>
+
+                <!-- Pagination -->
+                <ul class="pagination">
+                    <?php if ($halamanAktif > 1) : ?>
+                        <li class="page-item"><a class="page-link" href="?page=<?= $halamanAktif - 1 ?>">Previous</a></li>
+                    <?php endif; ?>
+
+                    <?php for ($i = $startNu; $i <= $endNu; $i++) : ?>
+                        <?php if ($i == $halamanAktif) : ?>
+                            <li class="page-item active"><a class="page-link" href="?page=<?= $i; ?>"><?= $i; ?></a></li>
+                        <?php else : ?>
+                            <li class="page-item"><a class="page-link" href="?page=<?= $i ?>"><?= $i; ?></a></li>
+                        <?php endif; ?>
+                    <?php endfor; ?>
+
+                    <?php if ($halamanAktif < $jumlahPage) : ?>
+                        <li class="page-item"><a class="page-link" href="?page=<?= $halamanAktif + 1 ?>">Next</a></li>
+                    <?php endif; ?>
+                </ul>
+                <!-- End Pagination -->
 
             </div>
             <!-- END USER DATA-->
