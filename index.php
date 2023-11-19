@@ -1,5 +1,11 @@
       <?php 
       require 'header.php';
+      require 'function/function.php';
+
+      $query_siswa = tampil("SELECT * FROM siswa");
+      $query_struktur = tampil("SELECT * FROM struktur");
+      $query_informasi = tampil("SELECT * FROM informasi");
+
  
       ?>
         <!-- Start Slider  -->
@@ -157,18 +163,20 @@
                 <!-- End Item-->
                 
                 <!-- Start Item-->
+                <?php $data_siswa = mysqli_num_rows($query_siswa); ?>
                 <div class="col-md-3 col-sm-6 facts-box margin-bottom-30">
                     <span><i class="icon-happy"></i></span>
-                    <h3>841</h3>
+                    <h3><?= $data_siswa; ?></h3>
                     <span>Siswa</span>
                 </div>
                 <!-- End Item-->
  
                  <!-- Start Item-->
+                 <?php $data_struktur = mysqli_num_rows($query_struktur); ?>
                 <div class="col-md-3 col-sm-6 facts-box margin-bottom-30">
                  <span><i class="icon-presentation"></i></span>
-                    <h3>800</h3>
-                    <span>Guru</span>
+                    <h3><?= $data_struktur; ?></h3>
+                    <span>Struktur-(Guru,Staf dan Kepala Sekolah)</span>
                 </div>
                 <!-- End Item-->
 
@@ -453,49 +461,22 @@
                  </div>
                 
                <!-- Start Blog item #1-->
+               <?php while($data_informasi = mysqli_fetch_assoc($query_informasi)): ?>
                <div class="col-md-4">
                    <div class="blog-post">
                          <div class="post-media">
-							 <img src="images/blog/blog1.jpg" alt="">
+							 <img src="images/informasi/<?= $data_informasi['gambar']; ?>" alt="">
                          </div>
                        <div class="post-desc">
-                           <h4>consectetur adipisicing Inventore</h4>
-                           <h5>12 May, 2015 / 5 Comments</h5>
-                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, dolorum, fugiat, eligendi magni quibusdam iure cupiditate ex voluptas unde</p>
-                            <a href="informasi_detail.php" class="btn btn-gray-border">Read More</a>
+                           <h4><?= $data_informasi['judul']; ?></h4>
+                           <h5><?= $data_informasi['tgl_informasi']; ?> / 5 Comments</h5>
+                           <?php $deskripsi = substr($data_informasi['deskripsi'],0,60) ?>
+                           <p><?= $deskripsi; ?>. . . . . . . . . </p>
+                            <a href="informasi_detail.php?id_informasi=<?= $data_informasi['id_informasi']; ?>" class="btn btn-gray-border">Read More</a>
                        </div>
                    </div>
-               </div>
-               
-               <!-- Start Blog item #2-->
-               <div class="col-md-4">
-                   <div class="blog-post">
-                         <div class="post-media">
-							 <img src="images/blog/blog2.jpg" alt="">
-                         </div>
-                       <div class="post-desc">
-                           <h4>consectetur adipisicing Inventore</h4>
-                            <h5>12 May, 2015 / 3 Comments</h5>
-                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, dolorum, fugiat, eligendi magni quibusdam iure cupiditate ex voluptas unde</p>
-                            <a href="informasi_detail.php" class="btn btn-gray-border">Read More</a>
-                       </div>
-                   </div>
-               </div>
-               
-               <!-- Start Blog item #3-->
-               <div class="col-md-4">
-                   <div class="blog-post">
-                         <div class="post-media">
-							 <img src="images/blog/blog3.jpg" alt="">
-                         </div>
-                       <div class="post-desc">
-                           <h4>consectetur adipisicing Inventore</h4>
-                             <h5>12 May, 2015 / 11 Comments</h5>
-                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, dolorum, fugiat, eligendi magni quibusdam iure cupiditate ex voluptas unde</p>
-                        <a href="informasi_detail.php" class="btn btn-gray-border">Read More</a>
-                       </div>
-                   </div>
-               </div>
+               </div>  
+               <?php endwhile; ?>          
 
            </div> <!--/.row-->
        </div> <!--/.container-->
