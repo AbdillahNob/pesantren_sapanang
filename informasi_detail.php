@@ -1,6 +1,6 @@
 <?php 
 
-require 'header.php';
+require 'header_informasi.php';
 
 ?>
 		<!-- page-header -->
