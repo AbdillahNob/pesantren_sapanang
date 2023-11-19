@@ -98,7 +98,7 @@ function insert($data, $no_file)
         }
     } else if ($no_file == 2) {
         $nis = $data['nis'];
-        $nama = $data['nama'];
+        $nama = mysqli_real_escape_string($con,stripslashes($data['nama']));
         $jenis_kelamin = $data['jenis_kelamin'];
         $status = $data['status'];
         $tgl_masuk = $data['tanggal_masuk'];
@@ -139,7 +139,7 @@ function insert($data, $no_file)
                                     ";
     } else if ($no_file == 3) {
         $nik = $data['nik'];
-        $nama = $data['nama'];
+        $nama = mysqli_real_escape_string($con,stripslashes($data['nama']));
         $jenis_kelamin = $data['jenis_kelamin'];
         $tempat_lahir = $data['tempat_lahir'];
         $tgl_lahir = $data['tanggal_lahir'];
@@ -162,6 +162,15 @@ function insert($data, $no_file)
             echo "
                 <script>
                     alert('Maaf Nik anda harus 16 digit');
+                </script>
+                ";
+            return false;
+        }
+        $result = mysqli_query($con, "SELECT * FROM struktur WHERE nik = '$nik'");
+        if (mysqli_num_rows($result) > 0) {
+            echo "
+                <script>
+                    alert('Nik anda sudah di terdaftar !');
                 </script>
                 ";
             return false;
@@ -193,25 +202,24 @@ function insert($data, $no_file)
                                             '$gambar')
                                             ";
         }
-    }else if($no_file == 4){
+    } else if ($no_file == 4) {
         $judul = $data['judul'];
         $deskripsi = $data['deskripsi'];
         $tanggal_informasi = $data['tanggal_informasi'];
         $penulis = $data['penulis'];
 
-         $gambar = upload($no_foto);
-         if (!$gambar) {
-             return false;
-         }
-         $query = "INSERT INTO informasi (judul, deskripsi, tgl_informasi, penulis, gambar) VALUES
+        $gambar = upload($no_foto);
+        if (!$gambar) {
+            return false;
+        }
+        $query = "INSERT INTO informasi (judul, deskripsi, tgl_informasi, penulis, gambar) VALUES
                                         ('$judul',
                                         '$deskripsi',
                                         '$tanggal_informasi',
                                         '$penulis',
                                         '$gambar')
                                         ";
-
-    } else{
+    } else {
         return false;
     }
 
@@ -255,10 +263,9 @@ function upload($no_foto)
         $fileDir = "../admin/images/user/";
     } else if ($no_foto == 3) {
         $fileDir = "../images/struktur/";
-    } else if($no_foto == 4){
+    } else if ($no_foto == 4) {
         $fileDir = "../images/informasi/";
-
-    } else{
+    } else {
         return false;
     }
 
@@ -357,11 +364,10 @@ function update($data, $no_file)
                         gambar = '$gambar'
                         WHERE id_user = $id
                         ";
-
     } else if ($no_file == 2) {
         $id = $data['id_siswa'];
         $nis = $data['nis'];
-        $nama = $data['nama'];
+        $nama = mysqli_real_escape_string($con,stripslashes($data['nama']));
         $jenis_kelamin = $data['jenis_kelamin'];
         // $status = $data['status'];
         $status_baru = $data['statusBaru'];
@@ -399,11 +405,10 @@ function update($data, $no_file)
                     kelas = '$kelas' 
                     WHERE id_siswa = $id
                     ";
-
     } else if ($no_file == 3) {
         $id = $data['id_struktur'];
         $nik = $data['nik'];
-        $nama = $data['nama'];
+        $nama = mysqli_real_escape_string($con,stripslashes($data['nama']));
         $jenis_kelamin = $data['jenis_kelamin'];
         $tempat_lahir = $data['tempat_lahir'];
         $tgl_lahir = $data['tanggal_lahir'];
@@ -422,12 +427,12 @@ function update($data, $no_file)
         }
 
         // Validasi jika jabatan tdk diperbarui dan msh menggunakan name sebelumnya maka datanya akan hilang ( fitur dropdown )
-        if(!$jabatanBaru){
+        if (!$jabatanBaru) {
             $jabatan = $data['jabatan_lama'];
-        }else{
+        } else {
             $jabatan = $jabatanBaru;
         }
-        
+
 
         $result = mysqli_query($con, "SELECT * FROM struktur WHERE jabatan = '$jabatan'");
         //Validasi Kepala yayasan hanya 1
@@ -452,7 +457,7 @@ function update($data, $no_file)
                                         WHERE id_struktur = $id
                                         ";
         }
-    } else if($no_file == 4){
+    } else if ($no_file == 4) {
         $id = $data['id_informasi'];
         $judul = $data['judul'];
         $deskripsi = $data['deskripsi'];
@@ -467,8 +472,7 @@ function update($data, $no_file)
                                     gambar = '$gambar'
                                     WHERE id_informasi = $id;
                                     ";
-    }
-    else{
+    } else {
         return false;
     }
 
@@ -491,12 +495,11 @@ function hapus($id, $no_file)
         $query = "DELETE FROM user WHERE id_user = $id";
     } else if ($no_file == 2) {
         $query = "DELETE FROM siswa WHERE id_siswa = $id";
-    }else if($no_file == 3){
+    } else if ($no_file == 3) {
         $query = "DELETE FROM struktur WHERE id_struktur = $id";
-    } else if($no_file == 4){
+    } else if ($no_file == 4) {
         $query = "DELETE FROM informasi WHERE id_informasi = $id";
-
-    }else{
+    } else {
         return false;
     }
     mysqli_query($con, $query);

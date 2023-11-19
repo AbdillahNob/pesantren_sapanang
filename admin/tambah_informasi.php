@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
                     });
                 },10);
                 window.setTimeout(function(){
-                    window.location.replace('tambah_informasi.php');
+                    window.location.replace('informasi.php');
                 },3000);
             </script>
         ";

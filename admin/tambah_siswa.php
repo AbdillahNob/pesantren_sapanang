@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
                     });
                 },10);
                 window.setTimeout(function(){
-                    window.location.replace('tambah_siswa.php');
+                    window.location.replace('siswa.php');
                 },3000);
             </script>
         ";

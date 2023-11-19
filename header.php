@@ -28,6 +28,12 @@
     <link rel="apple-touch-icon" sizes="72x72" href="images/logo-3.png">
     <link rel="apple-touch-icon" sizes="114x114" href="images/logo-4.png">
 
+    <style type="text/css">
+        .upper {
+            text-transform: uppercase;
+        }
+    </style>
+
 
      <!--styles -->
     <link href="css/bootstrap.min.css" rel="stylesheet">

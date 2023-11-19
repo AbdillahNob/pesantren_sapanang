@@ -34,7 +34,6 @@
         }
     </style>
 
-
      <!--styles -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.css" rel="stylesheet">
