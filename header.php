@@ -78,7 +78,7 @@
                                     
                                     <li> <a href="#history">Sejarah</a> </li>
                                     
-                                     <li> <a href="#team">Team</a> </li>
+                                     <li> <a href="#team">Struktur</a> </li>
 																		
 									<li> <a href="#informasi">Informasi</a></li>
 
