@@ -127,6 +127,17 @@ function insert($data, $no_file)
             return false;
         }
 
+        // Validasi agr Nis tdk boleh sama
+        $result = mysqli_query($con, "SELECT * FROM siswa WHERE nis = '$nis'");
+        if (mysqli_num_rows($result) > 0) {
+            echo "
+                <script>
+                    alert('Nis anda sudah di terdaftar !');
+                </script>
+                ";
+            return false;
+        }
+
         $query = "INSERT INTO siswa (nis, nama_siswa, jenis_kelamin, status, tgl_masuk, tempat_lahir, tgl_lahir, kelas) VALUES
                                     ('$nis',
                                     '$nama',
@@ -381,11 +392,12 @@ function update($data, $no_file)
         if ($j_nis != 10) {
             echo "                    
                 <script>
-                    alert('Maaf Nis anda kurang dari 10 digit');
+                    alert('Maaf Nis anda harus 10 digit');
                 </script>
                 ";
             return false;
         }
+
 
         // Validasi jika status tdk diperbarui dan msh menggunakan name sebelumnya maka datanya akan hilang ( fitur dropdown )
         if (!$status_baru) {
@@ -425,6 +437,17 @@ function update($data, $no_file)
                 ";
             return false;
         }
+
+        // $cekNik = mysqli_query($con, "SELECT * FROM struktur WHERE nik = '$nik'");
+        // if (mysqli_num_rows($cekNik) > 0 && $id != $cekNik['id_struktur']) {
+        //     echo "
+        //     <script>
+        //         alert('Maaf Nik anda sudah terdaftar !');
+        //     </script>
+        //     ";
+        // return false;
+      
+        // }
 
         // Validasi jika jabatan tdk diperbarui dan msh menggunakan name sebelumnya maka datanya akan hilang ( fitur dropdown )
         if (!$jabatanBaru) {
