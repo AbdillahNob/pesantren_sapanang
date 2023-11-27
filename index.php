@@ -69,8 +69,8 @@
                                                   <div class="icon"> <i class="fa fa-thumb-tack"></i> </div>
                                                   <div class="info">
                                                       <h4>Profile</h4>
-                                                      <p>Pesantren Nurul Hidayah Sapanang adalah sekolah swasta pendidikan agama islam yang berada di 
-                                                        <b>Desa SAPANANG, Kec.BINAMU, Kab.JENEPONTO, Sulawesi-Selatan.</b>
+                                                      <p>Pesantren Nurul Hidayah Sapanang adalah sekolah swasta pendidikan agama islam yang berada di
+                                                          <b>Desa SAPANANG, Kec.BINAMU, Kab.JENEPONTO, Sulawesi-Selatan.</b>
                                                           <br><br>
                                                           Pondok Pesantren Nurul Hidayah Sapanang memiliki berbagai jenjang
                                                           sekolah yaitu terdiri dari <b>SD,SMP,SMA dan Tahfidz khusus Putra</b> dan
@@ -89,7 +89,9 @@
                                                   <div class="icon"> <i class="fa fa-star-o"></i> </div>
                                                   <div class="info">
                                                       <h4>Visi </h4>
-                                                      <p>Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet. Et netus et malesuada fames ac turpis egestas tristique senectus. </p>
+                                                      <p>Membentuk dasar karakter yang berintlektual dan ahlak yang sesuai syariat islam,
+                                                          serta fondasi iman dan takwa kepada allah swt.
+                                                      </p>
                                                   </div>
                                               </div>
 
@@ -97,7 +99,24 @@
                                                   <div class="icon"> <i class="fa fa-codepen"></i> </div>
                                                   <div class="info">
                                                       <h4>Misi</h4>
-                                                      <p>Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet. Et netus et malesuada fames ac turpis egestas tristique senectus. </p>
+                                                      <p>
+                                                          1. Mendidik Peserta didik agar memiliki kesadaran Ketuhanan (spiritual makrifat).
+                                                          <br>
+                                                          2. Mengutamakan dalam mendidik ahlak santri dan siswa yang sesuai syariat islam.
+                                                          <br>
+                                                          3. Mengamalkan dan mengimplementasikan ilmu al-quran,hadist dan sunnah rasullah saw.
+                                                          <br>
+                                                          4. Memberikan kurikulum materi agama islam yang menyesuaikan dinamika refleksi naluri dan karakter
+                                                          santri/siswa sesuai zaman.
+                                                          <br>
+                                                          5. Menyediakan fasilitas dalam menunjang keberlangsungan mengajar dan belajar.
+                                                          <br>
+                                                          6. Menyediakan fasilitas tempat tinggal dan aspek-aspek kebutuhan prima kehidupan santri.
+                                                          <br>
+                                                          7. Mengembangkan potensi siswa dan santri yang berjiwa mandiri, beretos kerja keras, kompetitif dan jujur.
+                                                          <br>
+                                                          8. Mempersiapkan santri menjadi <b>Hafizh Al-Qur'an</b>.
+                                                      </p>
                                                   </div>
                                               </div>
 
