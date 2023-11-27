@@ -48,7 +48,7 @@ function insert($data, $no_file)
         }
 
         // Validasi untuk membatasi akun yg didaftar
-        if ($username == 'kepala sekolah' || $username == 'guru' || $username == 'staf') {
+        if ($username == 'kepala sekolah' || $username == 'sekretaris' || $username == 'guru' || $username == 'staf') {
 
             $result = mysqli_query($con, "SELECT * FROM user WHERE username ='$username'");
             // Validasi apakah username yg didftr sdh ad di DB
@@ -98,7 +98,7 @@ function insert($data, $no_file)
         }
     } else if ($no_file == 2) {
         $nis = $data['nis'];
-        $nama = mysqli_real_escape_string($con,stripslashes($data['nama']));
+        $nama = mysqli_real_escape_string($con, stripslashes($data['nama']));
         $jenis_kelamin = $data['jenis_kelamin'];
         $status = $data['status'];
         $tgl_masuk = $data['tanggal_masuk'];
@@ -150,7 +150,7 @@ function insert($data, $no_file)
                                     ";
     } else if ($no_file == 3) {
         $nik = $data['nik'];
-        $nama = mysqli_real_escape_string($con,stripslashes($data['nama']));
+        $nama = mysqli_real_escape_string($con, stripslashes($data['nama']));
         $jenis_kelamin = $data['jenis_kelamin'];
         $tempat_lahir = $data['tempat_lahir'];
         $tgl_lahir = $data['tanggal_lahir'];
@@ -378,7 +378,7 @@ function update($data, $no_file)
     } else if ($no_file == 2) {
         $id = $data['id_siswa'];
         $nis = $data['nis'];
-        $nama = mysqli_real_escape_string($con,stripslashes($data['nama']));
+        $nama = mysqli_real_escape_string($con, stripslashes($data['nama']));
         $jenis_kelamin = $data['jenis_kelamin'];
         // $status = $data['status'];
         $status_baru = $data['statusBaru'];
@@ -420,7 +420,7 @@ function update($data, $no_file)
     } else if ($no_file == 3) {
         $id = $data['id_struktur'];
         $nik = $data['nik'];
-        $nama = mysqli_real_escape_string($con,stripslashes($data['nama']));
+        $nama = mysqli_real_escape_string($con, stripslashes($data['nama']));
         $jenis_kelamin = $data['jenis_kelamin'];
         $tempat_lahir = $data['tempat_lahir'];
         $tgl_lahir = $data['tanggal_lahir'];
@@ -446,7 +446,7 @@ function update($data, $no_file)
         //     </script>
         //     ";
         // return false;
-      
+
         // }
 
         // Validasi jika jabatan tdk diperbarui dan msh menggunakan name sebelumnya maka datanya akan hilang ( fitur dropdown )

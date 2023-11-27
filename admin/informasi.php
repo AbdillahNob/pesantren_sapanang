@@ -4,7 +4,7 @@ require 'template/header.php';
 
 $query_informasi = tampil("SELECT * FROM informasi");
 
-$dataPerhalaman = 3;
+$dataPerhalaman = 2;
 $totalData = mysqli_num_rows($query_informasi);
 $jumlahPage = ceil($totalData / $dataPerhalaman);
 

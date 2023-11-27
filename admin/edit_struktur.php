@@ -146,6 +146,8 @@ if (isset($_POST['submit'])) {
                                     <select name="jabatanBaru" id="jabatanBaru" class="form-control-sm form-control">
                                         <option value="">Pilih Jabatan</option>
                                         <option value="kepala yayasan">Kepala Yayasan</option>
+                                        <option value="sekretaris">Sekretaris</option>
+                                        <option value="bendahara">Bendahara</option>
                                         <option value="guru">Guru</option>
                                         <option value="staf">Staf</option>
                                     </select>

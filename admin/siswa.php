@@ -20,7 +20,7 @@ $query = "SELECT * FROM siswa WHERE
 
 $query_siswa = tampil($query);
 
-$dataPerhalaman = 2;
+$dataPerhalaman = 10;
 $totalData = mysqli_num_rows($query_siswa);
 $jumlahPage = ceil($totalData / $dataPerhalaman);
 
@@ -99,7 +99,9 @@ if($halamanAktif < ($jumlahPage - 3)){
                             ?>
                                 <tbody>
                                     <tr>
-                                        <td><?= $n++; ?></td>
+                                        <th>
+                                            <p align="center"><?= $n++; ?></p>
+                                        </th>
                                         <td><?= $row['nis']; ?></td>
                                         <td><?= $row['nama_siswa']; ?></td>
                                         <td>

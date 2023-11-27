@@ -4,7 +4,7 @@ require '../function/function.php';
 
 $query_user = tampil("SELECT * FROM user");
 
-$dataPerhalaman = 2;
+$dataPerhalaman = 3;
 $totalData = mysqli_num_rows($query_user);
 $jumlahPage = ceil($totalData / $dataPerhalaman);
 
