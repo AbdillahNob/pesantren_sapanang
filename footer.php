@@ -4,8 +4,9 @@
            <div class="row">
                <!--Start copyright-->
                <div class="col-md-6 col-sm-6 col-xs-6">
-                   <div class="copyright"><p>by : KKN-T <a href="https://id.wikipedia.org/wiki/Universitas_Dipa_Makassar">UNIVERSITAS DIPA MAKASSAR </a>Gel-01 <img src="images/undipa.png" width="50"></p>
-                </div>
+                   <div class="copyright">
+                        <p>by : KKN-T <a href="https://id.wikipedia.org/wiki/Universitas_Dipa_Makassar">UNIVERSITAS DIPA MAKASSAR </a>Gel-01 <img src="images/undipa.png" width="50"></p>
+                   </div>
                </div>
                <!--End copyright-->
                
@@ -13,9 +14,9 @@
                <div class="col-md-6 col-sm-6 col-xs-6">
                    <div class="social-icons">
                        <ul>
+                        <li><a><i class="fa fa-phone"></i> 081355045109</a></li>
                         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                         <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                         <li><a href="#"><i class="fa fa-instagram"></i></a></li>
                        </ul>
                     </div>
