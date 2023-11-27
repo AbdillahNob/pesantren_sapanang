@@ -69,7 +69,8 @@
                                                   <div class="icon"> <i class="fa fa-thumb-tack"></i> </div>
                                                   <div class="info">
                                                       <h4>Profile</h4>
-                                                      <p>Pesantren Nurul Hidayah Sapanang adalah sekolah swasta pendidikan agama islam yang berada di <b>Desa SAPANANG, Kec.BINAMU, Kab.JENEPONTO, Sulawesi Selatan.</b>
+                                                      <p>Pesantren Nurul Hidayah Sapanang adalah sekolah swasta pendidikan agama islam yang berada di 
+                                                        <b>Desa SAPANANG, Kec.BINAMU, Kab.JENEPONTO, Sulawesi-Selatan.</b>
                                                           <br><br>
                                                           Pondok Pesantren Nurul Hidayah Sapanang memiliki berbagai jenjang
                                                           sekolah yaitu terdiri dari <b>SD,SMP,SMA dan Tahfidz khusus Putra</b> dan
@@ -173,17 +174,25 @@
               <div class="row">
 
                   <!-- Features Icon-->
+                  <div class="text-center">
+                      <div class="features-icon">
+                          <div class="features-info">
+                              <h2><i class="fa fa-building"></i> Fasilitas</h2>
+                          </div>
+                      </div>
+                  </div>
+
+                  <br><br><br><br><br><br>
+                  <!-- Features Icon-->
                   <div class="col-md-4">
                       <div class="features-icon-box">
 
                           <div class="features-icon">
-                              <i class="fa fa-leaf"></i>
+                              <i class="fa fa-home"></i>
                           </div>
 
                           <div class="features-info">
-                              <h4>Tauhid</h4>
-                              <p>Para siswa di ajarkan ilmu Taudid, karena tauhid merupakan ajaran dasar dalam islam
-                                  sehingga bisa membentuk pondasi para siswa terkait ilmu agama islam.</p>
+                              <h4>Mesjid</h4>
                           </div>
                       </div>
                   </div>
@@ -197,11 +206,8 @@
                           </div>
 
                           <div class="features-info">
-                              <h4>Fiqih</h4>
-                              <p>Ilmu Fiqih juga di ajarkan untuk siswa, sebab Fiqih merupakan ilmu tentang
-                                  hukum yang mengatur berbagai aspek kehidupan manusia,
-                                  baik kehidupan pribadi, bermasyarakat maupun kehidupan manusia dengan Allah.
-                              </p>
+                              <h4>Ruang-Belajar</h4>
+
                           </div>
                       </div>
                   </div>
@@ -215,10 +221,8 @@
                           </div>
 
                           <div class="features-info">
-                              <h4>Ushul Fiqih</h4>
-                              <p>Siswa di ajarkan ilmu ini yang bertujuan untuk mengembangkan metode dan prinsip-prinsip yang dapat diterapkan untuk mendapatkan
-                                  dasar hukum Islam dari sumber utama, yaitu Al-Qur'an dan Hadis, serta pemahaman tentang
-                                  praktik-praktik Nabi Muhammad SAW.</p>
+                              <h4>Asrama dan Kamar-Mandi</h4>
+
                           </div>
                       </div>
                   </div>
@@ -228,15 +232,12 @@
                       <div class="features-icon-box">
 
                           <div class="features-icon">
-                              <i class="fa fa-paint-brush"></i>
+                              <i class="fa fa-university"></i>
                           </div>
 
                           <div class="features-info">
-                              <h4>Hadis</h4>
-                              <p>Di Pesantren ini siswa juga di ajarkan tentang hadis, yg bertujuan agar siswa dapat memahami dan mengetahui
-                                  setiap perkataan dan perbuatan dari nabi muhammad SAW, dan juga hadis merupakan sumber hukum islam yang ke-2
-                                  yang tidak terdapat dalam al-quran.
-                              </p>
+                              <h4>Kantor</h4>
+
                           </div>
                       </div>
                   </div>
@@ -246,14 +247,67 @@
                       <div class="features-icon-box">
 
                           <div class="features-icon">
-                              <i class="fa fa-line-chart"></i>
+                              <i class="fa fa-book"></i>
                           </div>
 
                           <div class="features-info">
-                              <h4>Tafsir Al-quran</h4>
-                              <p>Tafsir Al-Quran merupakan ilmu utama yang di ajarkan siswa pada Pesantren ini karena bertujuan agar
-                                  siswa benar-benar bisa lebih dalam memahami dan menganalisa isi dari al-quran baik ayat-perayat
-                                  maupun huruf-perhuruf.
+                              <h4>Perpustakaan</h4>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- Features Icon-->
+                  <div class="col-md-4">
+                      <div class="features-icon-box">
+
+                          <div class="features-icon">
+                              <i class="fa fa-cart-plus"></i>
+                          </div>
+
+                          <div class="features-info">
+                              <h4>Kantin</h4>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- Features Icon-->
+                  <div class="col-md-4">
+                      <div class="features-icon-box">
+
+                          <div class="features-icon">
+                              <i class="fa fa-futbol-o"></i>
+                          </div>
+
+                          <div class="features-info">
+                              <h4>Lapangan</h4>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- Features Icon-->
+                  <div class="col-md-4">
+                      <div class="features-icon-box">
+
+                          <div class="features-icon">
+                              <i class="fa fa-cutlery"></i>
+                          </div>
+
+                          <div class="features-info">
+                              <h4>Dapur</h4>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- Features Icon-->
+                  <div class="col-md-4">
+                      <div class="features-icon-box">
+
+                          <div class="features-icon">
+                              <i class="fa fa-car"></i>
+                          </div>
+
+                          <div class="features-info">
+                              <h4>Parkiran/Halaman</h4>
                               </p>
                           </div>
                       </div>
