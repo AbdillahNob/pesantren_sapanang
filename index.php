@@ -21,7 +21,7 @@
                               <a href="#history" class="middle btn btn-white">Cek Selengkapnya</a>
                           </div>
                       </div>
-                      <img src="images/slider/1.jpg" alt="">
+                      <img src="images/slider/re1.jpg" alt="">
                   </li>
 
                   <li class="secondary">
@@ -32,7 +32,7 @@
                               <a href="#history" class=" middle btn btn-white">Cek Selengkapnya</a>
                           </div>
                       </div>
-                      <img src="images/slider/2.jpg" alt="">
+                      <img src="images/slider/re2.jpg" alt="">
                   </li>
 
                   <li class="third">
@@ -43,8 +43,9 @@
                               <a href="#history" class="middle btn btn-white">Cek Selengkapnya</a>
                           </div>
                       </div>
-                      <img src="images/slider/3.jpg" alt="">
+                      <img src="images/slider/third.jpg" alt="">
                   </li>
+
               </ul>
           </div>
       </section>
@@ -128,9 +129,14 @@
                                           <!--  Start Carousel-->
                                           <div class="col-md-6">
                                               <div class="tab-carousel">
-                                                  <div class="item"><img src="images/works/img4.jpg" alt=""></div>
-                                                  <div class="item"><img src="images/works/img5.jpg" alt=""></div>
-                                                  <div class="item"><img src="images/works/img6.jpg" alt=""></div>
+                                                  <div class="item"><img src="images/profile/1.jpg" alt=""></div>
+                                                  <div class="item"><img src="images/profile/2.jpg" alt=""></div>
+                                                  <div class="item"><img src="images/profile/3.jpg" alt=""></div>
+                                                  <div class="item"><img src="images/profile/4.jpg" alt=""></div>
+                                                  <div class="item"><img src="images/profile/5.jpg" alt=""></div>
+                                                  <div class="item"><img src="images/profile/6.jpg" alt=""></div>
+                                                  <div class="item"><img src="images/profile/7.jpg" alt=""></div>
+                                                  <div class="item"><img src="images/profile/8.jpg" alt=""></div>
                                               </div>
                                           </div>
                                           <!-- End Carousel-->
@@ -349,49 +355,46 @@
               <!-- History Timeline -->
               <ul class="timeline list-unstyled">
 
-                  <li class="year">2014</li>
+                  <li class="year">2020</li>
 
                   <!--History Item -->
                   <li class="timeline-item">
-                      <h4>Lorem ipsum dolor consectetur adipisicing.</h4>
-                      <p>Lorem ipsum dolor consectetur adipisicing incididunt eiusmod tempor incididunt laboredolore magna aliqua.</p>
-                      <span> 16 OCT 2014</span>
+                      <h4>1.</h4>
+                      <p>Berdirinya pondok pesantren nurul hidayah sapanang berawal dari kerisauan semakin hari umat 
+                        islam semakin jauh dari agama ini terlihat bagaimana masjid masjid hampir disetiap pelosok kampung 
+                        dan daerah sepi pengunjungnya </p>
+                      <span>2020</span>
                   </li>
                   <!-- End Item -->
 
                   <!--History Item -->
                   <li class="timeline-item">
-                      <h4>Lorem ipsum dolor consectetur adipisicing.</h4>
-                      <p>Lorem ipsum dolor consectetur adipisicing incididunt eiusmod tempor incididunt laboredolore magna aliqua.</p>
-                      <span> 18 OCT 2014</span>
+                      <h4>2.</h4>
+                      <p>Olehnya itu kami berinisiatif untuk membuat generasi 
+                        dengan membuat suatu lembaga pesantren agar mudah untuk mengkader generasi yang islami.</p>
+                      <span>2020</span>
                   </li>
                   <!-- End Item -->
 
                   <!-- History Year -->
-                  <li class="year">2015</li>
+                  <li class="year">2021</li>
 
 
                   <!--History Item -->
                   <li class="timeline-item">
-                      <h4>Lorem ipsum dolor consectetur adipisicing.</h4>
-                      <p>Lorem ipsum dolor consectetur adipisicing incididunt eiusmod tempor incididunt laboredolore magna aliqua.</p>
-                      <span> 10 OCT 2015</span>
+                      <h4>3.</h4>
+                      <p>Tahun 2021 mulailah kami memberanikan diri untuk buat pesantren walau hanya numpan dibadan masjid
+                         namun berjalan waktu Allah memberi tempat yang lebih layak.</p>
+                      <span>2022</span>
                   </li>
                   <!-- End Item -->
 
                   <!--History Item -->
                   <li class="timeline-item">
-                      <h4>Lorem ipsum dolor consectetur adipisicing.</h4>
-                      <p>Lorem ipsum dolor consectetur adipisicing incididunt eiusmod tempor incididunt laboredolore magna aliqua.</p>
-                      <span> 11 OCT 2014</span>
-                  </li>
-                  <!-- End Item -->
-
-                  <!--History Item -->
-                  <li class="timeline-item">
-                      <h4>Lorem ipsum dolor consectetur adipisicing.</h4>
-                      <p>Lorem ipsum dolor consectetur adipisicing incididunt eiusmod tempor incididunt laboredolore magna aliqua.</p>
-                      <span> 18 OCT 2015</span>
+                      <h4>4.</h4>
+                      <p>Dan alhamdulillah seiring berjalannya waktu pondok pesantren ini signifikan berkembang baik dari 
+                        segi SDM santri dan guru/ustad maupun dari segi bangunan serta fasilitas yang terus di renovasi.</p>
+                      <span>2022</span>
                   </li>
                   <!-- End Item -->
 
