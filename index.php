@@ -425,7 +425,7 @@
                   <?php while ($data_struktur = mysqli_fetch_assoc($query_struktur)) : ?>
                       <!-- Team Member #1 -->
                       <div class="item">
-                          <img src="images/struktur/<?= $data_struktur['gambar']; ?>" alt="Responsive image" class="img-fluid" width="350" height="250" />
+                          <img src="images/struktur/<?= $data_struktur['gambar']; ?>" alt="Responsive image" class="img-fluid"/>
                           <h4><a class="upper"><?= $data_struktur['nama']; ?></a></h4>
                           <p class="upper">
                               <b><?= $data_struktur['jabatan']; ?></b>

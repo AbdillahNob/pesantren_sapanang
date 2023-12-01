@@ -80,7 +80,6 @@ if(isset($_POST['submit'])){
                                 </div>
                                 <div class="col-12 col-md-9">
                                     <textarea id="deskripsi" name="deskripsi" placeholder="Masukkan Deskripsi" rows="9" class="form-control" required><?= $row['deskripsi']; ?></textarea>
-                                    <input type="hidden" name="deskripsi" value="<?= $row['deskripsi']; ?>">
                                 </div>
                             </div>
 
