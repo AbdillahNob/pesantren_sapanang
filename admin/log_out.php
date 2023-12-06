@@ -5,7 +5,7 @@ $_SESSION=[];
 session_unset();
 session_destroy();
 
-setcookie("id", "", time()-1);
-setcookie("key", "", time()-1);
+setcookie("idd", "", time()-1);
+setcookie("keyy", "", time()-1);
 header('location:login.php');
 ?>
