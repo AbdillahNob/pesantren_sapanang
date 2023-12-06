@@ -4,9 +4,9 @@ require '../admin/template/call_sweetAlert.php';
 session_start();
 
 // Validasi apabila msh ad cookie di client browser
-if(isset($_COOKIE['id']) && isset($_COOKIE['key'])){
-    $id = $_COOKIE['id'];
-    $username = $_COOKIE['key'];
+if(isset($_COOKIE['idd']) && isset($_COOKIE['keyy'])){
+    $id = $_COOKIE['idd'];
+    $username = $_COOKIE['keyy'];
 
     $data = tampil("SELECT * FROM user WHERE id_user = $id");
     $validasi = mysqli_fetch_assoc($data);
@@ -40,8 +40,8 @@ if(isset($_POST['login'])){
                 $_SESSION['username'] = $row['username'];
 
             if(isset($_POST['remember'])){
-                setcookie('id', $row['id_user'], time()+60*60*24);
-                setcookie('key', hash('sha256', $row['username']), time()+60*60*24);
+                setcookie('idd', $row['id_user'], time()+60*60*24);
+                setcookie('keyy', hash('sha256', $row['username']), time()+60*60*24);
             }
             echo"
                 <script>

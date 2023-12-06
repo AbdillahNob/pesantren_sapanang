@@ -133,10 +133,11 @@
                                                   <div class="item"><img src="images/profile/2.jpg" alt=""></div>
                                                   <div class="item"><img src="images/profile/3.jpg" alt=""></div>
                                                   <div class="item"><img src="images/profile/4.jpg" alt=""></div>
-                                                  <div class="item"><img src="images/profile/5.jpg" alt=""></div>
+                                                  <div class="item"><img src="images/profile/R5.JPG" alt=""></div>
                                                   <div class="item"><img src="images/profile/6.jpg" alt=""></div>
                                                   <div class="item"><img src="images/profile/7.jpg" alt=""></div>
                                                   <div class="item"><img src="images/profile/8.jpg" alt=""></div>
+                                                  <div class="item"><img src="images/profile/9.jpg" alt=""></div>
                                               </div>
                                           </div>
                                           <!-- End Carousel-->
