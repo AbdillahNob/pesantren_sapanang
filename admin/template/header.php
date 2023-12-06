@@ -11,7 +11,7 @@ if (!isset($_SESSION['halaman'])) {
 }
 $username = $_SESSION['username'];
 
-$con = mysqli_connect("localhost", "root", "", "pesantren_sapanang");
+$con = mysqli_connect("localhost", "u280662939_ponps_sapanang", "LuKMaN91", "u280662939_ponps_sapanang");
 $query_total = mysqli_query($con, "SELECT * FROM user");
 
 
