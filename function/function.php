@@ -2,7 +2,7 @@
 
 use LDAP\Result;
 
-$con = mysqli_connect("localhost", "u280662939_ponps_sapanang", "LuKMaN91", "280662939_ponps_sapanangu");
+$con = mysqli_connect("localhost", "u280662939_ponps_sapanang", "LuKMaN91", "u280662939_ponps_sapanang");
 
 // if(!$result){
 //     echo mysqli_error($con);
