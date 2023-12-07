@@ -161,10 +161,6 @@ $data = mysqli_fetch_assoc($result);
                                 </div>
                                 <div class="setting-menu js-right-sidebar d-none d-lg-block">
                                     <div class="account-dropdown__body">
-                                        <div class="account-dropdown__item">
-                                            <a href="register.php">
-                                                <i class="zmdi zmdi-account"></i>Register Akun</a>
-                                        </div>
 
                                         <div class="account-dropdown__item">
                                             <a href="log_out.php" onclick="return confirm('Yakin mau keluar ?')">
@@ -230,11 +226,17 @@ $data = mysqli_fetch_assoc($result);
                                             <i class="fas fa-address-card"></i>Struktur</a>
                                     </li>
                                 </ul>
-                            </li>s
+                            </li>
                             <li>
                                 <a href="informasi.php">
                                     <i class="fas fa-info-circle"></i>Informasi
                                 </a>
+                            </li>
+                            <li>
+                                <div class="account-dropdown__item">
+                                    <a href="log_out.php" onclick="return confirm('Yakin mau keluar ?')">
+                                        <i class="zmdi zmdi-close-circle"></i>Keluar</a>
+                                </div>
                             </li>
                         </ul>
                     </nav>
