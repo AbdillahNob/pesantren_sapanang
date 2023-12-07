@@ -22,7 +22,7 @@
                                 <div class="setting-menu js-right-sidebar d-none d-lg-block">
                                     <div class="account-dropdown__body">
                                         <div class="account-dropdown__item">
-                                            <a href="form.php">
+                                            <a href="register.php">
                                                 <i class="zmdi zmdi-account"></i>Register Akun</a>
                                         </div>
                                         <div class="account-dropdown__item">
