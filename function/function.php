@@ -121,7 +121,7 @@ function insert($data, $no_file)
         if ($j_nis != 10) {
             echo "
                 <script>
-                    alert('Maaf Nis anda Harus 10 digit');
+                    alert('Maaf Nisn anda Harus 10 digit');
                 </script>
             ";
             return false;
@@ -189,10 +189,10 @@ function insert($data, $no_file)
 
         $result = mysqli_query($con, "SELECT * FROM struktur WHERE jabatan = '$jabatan'");
         //Validasi Kepala yayasan hanya 1
-        if (mysqli_num_rows($result) > 0 && $jabatan == "kepala yayasan") {
+        if (mysqli_num_rows($result) > 0 && $jabatan == "pimpinan pondok") {
             echo "
                 <script>
-                    alert('Maaf Kepala Yayasan hanya 1 orang !');
+                    alert('Maaf Pimpinan Pondok hanya 1 orang !');
                 </script>
                 ";
             return false;

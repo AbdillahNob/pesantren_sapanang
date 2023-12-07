@@ -145,7 +145,7 @@ if (isset($_POST['submit'])) {
                                 <div class="col-12 col-md-9">
                                     <select name="jabatanBaru" id="jabatanBaru" class="form-control-sm form-control">
                                         <option value="">Pilih Jabatan</option>
-                                        <option value="kepala yayasan">Kepala Yayasan</option>
+                                        <option value="pimpinan pondok">Pimpinan Pondok</option>
                                         <option value="sekretaris">Sekretaris</option>
                                         <option value="bendahara">Bendahara</option>
                                         <option value="guru">Guru</option>

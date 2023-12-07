@@ -82,7 +82,7 @@ if($halamanAktif < ($jumlahPage - 3)){
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nis</th>
+                                    <th>Nisn</th>
                                     <th>Nama</th>
                                     <th>Jenis kelamin</th>
                                     <th>status</th>
