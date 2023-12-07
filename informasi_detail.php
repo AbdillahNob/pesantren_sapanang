@@ -9,7 +9,7 @@ $query_informasi = tampil("SELECT * FROM informasi WHERE id_informasi = $id");
 ?>
 <!-- page-header -->
 <section id="page-header" class="parallax">
-	<div class="overlay"></div>
+	<div class="overlayI"></div>
 	<div class="container">
 		<h1>Informasi</h1>
 		<!--Start Breadcrumb-->
