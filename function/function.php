@@ -48,7 +48,7 @@ function insert($data, $no_file)
         }
 
         // Validasi untuk membatasi akun yg didaftar
-        if ($username == 'kepala sekolah' || $username == 'sekretaris' || $username == 'guru' || $username == 'staf') {
+        if ($username == 'pimpinan pondok' || $username == 'admin' || $username == 'staf') {
 
             $result = mysqli_query($con, "SELECT * FROM user WHERE username ='$username'");
             // Validasi apakah username yg didftr sdh ad di DB
